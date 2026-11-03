@@ -31,10 +31,7 @@ OVERLAY_FAILED = (
 )
 INPUT_UNREADABLE = "This input could not be opened or recognized."
 RUN_FAILED = "Registration failed for this sample."
-LOW_ADVICE = (
-    "What to do: check that the right images are linked on the Samples screen, then use landmarks "
-    "(coming next)."
-)
+LOW_ADVICE = "What to do: check that the right images are linked on the Samples screen."
 
 
 def exception_text(exc: BaseException) -> str:

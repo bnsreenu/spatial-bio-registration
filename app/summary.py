@@ -8,6 +8,7 @@ from typing import Dict, List, Optional, Tuple
 import numpy as np
 
 import engine
+import deformation
 import io_layers
 import pipeline
 from app import errors
@@ -356,6 +357,23 @@ def steps_level(result: Dict, steps: List[Dict]) -> str:
 def steps_text(steps: List[Dict]) -> str:
     """One plain line per step, e.g. "COMET to Xenium: 1591 matching points, 92 percent agree. ..."."""
     return "\n".join(step_sentence(s, s["step"].split("_to_", 1)[1]) for s in steps)
+
+
+def deformation_level(steps: List[Dict]) -> Optional[str]:
+    """The deformation check outcome for these steps (None when not available)."""
+    return deformation.sample_check(steps) if steps else None
+
+
+def capped_level(level: str, steps: List[Dict]) -> str:
+    check = deformation_level(steps)
+    return pipeline.cap_confidence(level, check) if check else level
+
+
+def deformation_reason(level: str, capped: str, layer: str, reference: str) -> str:
+    """Card headline: the usual one, or the capped wording when the check capped a high match."""
+    if level == "high" and capped != level:
+        return "High match confidence, but possible tissue deformation. Check the overlay."
+    return layer_headline(capped, layer, reference)
 
 
 def layer_headline(level: str, layer: str, reference: str) -> str:

@@ -575,6 +575,8 @@ def build_review_screen() -> SimpleNamespace:
     cl.addWidget(badge, 0, Qt.AlignLeft)
     cl.addWidget(reason)
     cl.addWidget(overall)
+    deformation_line = label("")
+    cl.addWidget(deformation_line)
     cl.addWidget(notes)
     cl.addWidget(steps.toggle, 0, Qt.AlignLeft)
     cl.addWidget(steps.text)
@@ -593,6 +595,13 @@ def build_review_screen() -> SimpleNamespace:
     decide.addWidget(accept)
     decide.addWidget(reject)
     rl.addLayout(decide)
+
+    use_affine = QCheckBox("Use affine (allows stretch and shear)")
+    use_affine.setChecked(False)
+    use_affine.setVisible(False)
+    use_affine.setToolTip("Similarity (rotation, shift and uniform scale) stays the default. The affine also "
+                          "allows stretch and shear for the steps where the deformation check found it.")
+    rl.addWidget(use_affine)
 
     ref_row = QHBoxLayout()
     ref_row.addWidget(label("Reference:", "muted", wrap=False))
@@ -631,9 +640,7 @@ def build_review_screen() -> SimpleNamespace:
 
     export_accepted = button("Save accepted results...", "primary")
     export_one = button("Save this sample's results...")
-    landmarks = button("Correct with landmarks (coming next)")
-    landmarks.setEnabled(False)
-    for b in (export_accepted, export_one, landmarks):
+    for b in (export_accepted, export_one):
         rl.addWidget(b)
     rl.addStretch(1)
     scroll.setWidget(inner)
@@ -646,6 +653,7 @@ def build_review_screen() -> SimpleNamespace:
         ref_name=ref_name, change_ref=change_ref, layer=layer, onto=onto, mode_buttons=mode_buttons,
         mode_group=mode_group, color_buttons=color_buttons, color_group=color_group, slider=slider,
         markers=markers, caption=caption, export_one=export_one, export_accepted=export_accepted,
-        landmarks=landmarks, status=status, export_state=export_state, accept=accept, reject=reject, accept_high=accept_high,
+        status=status, export_state=export_state, accept=accept, reject=reject, accept_high=accept_high,
+        deformation=deformation_line, use_affine=use_affine,
     )
 

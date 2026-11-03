@@ -19,7 +19,7 @@ from app import errors, help_text  # noqa: E402
 
 class TestVersion(unittest.TestCase):
     def test_one_version_everywhere(self):
-        self.assertEqual(version.VERSION, "0.1.0")
+        self.assertEqual(version.VERSION, "0.2.0")
         self.assertIn(f"Version {version.VERSION}\n", help_text.ABOUT_TEXT)
         self.assertEqual(help_text.VERSION, version.VERSION)
         self.assertEqual(session.SOFTWARE_VERSION, version.VERSION)

@@ -42,7 +42,8 @@ import numpy as np
 
 from export import write_imagealignment_csv, write_keypoints_csv
 from landmarks import suggest_landmarks
-from reference import apply_reference
+from reference import apply_reference, layer_matrix_variants
+from deformation import SHORT_LABELS, sample_check
 
 from version import VERSION as SOFTWARE_VERSION
 
@@ -70,6 +71,8 @@ def _result_to_jsonable(result: Dict) -> Dict:
     NaN/inf floats in diagnostics) into a plain JSON-serializable dict."""
     out = dict(result)
     out["matrices"] = {k: _matrix_to_list(v) for k, v in result.get("matrices", {}).items()}
+    if result.get("matrices_similarity") is not None:
+        out["matrices_similarity"] = {k: _matrix_to_list(v) for k, v in result["matrices_similarity"].items()}
     out["diagnostics"] = json.loads(
         json.dumps(result.get("diagnostics", []), default=_json_default)
     )
@@ -92,9 +95,14 @@ def _json_default(obj):
 def _result_from_jsonable(data: Dict) -> Dict:
     out = dict(data)
     out["matrices"] = {k: _matrix_from_list(v) for k, v in data.get("matrices", {}).items()}
+    if data.get("matrices_similarity") is not None:
+        out["matrices_similarity"] = {k: _matrix_from_list(v) for k, v in data["matrices_similarity"].items()}
     diagnostics = []
     for diag in data.get("diagnostics", []):
         diag = dict(diag)
+        for key in ("step_matrix", "affine_matrix"):
+            if diag.get(key) is not None:
+                diag[key] = np.array(diag[key], dtype=float)
         diag["src_pts"] = np.array(diag.get("src_pts") or [], dtype=np.float64).reshape(-1, 2)
         diag["dst_pts"] = np.array(diag.get("dst_pts") or [], dtype=np.float64).reshape(-1, 2)
         diag["match_ids"] = np.array(diag.get("match_ids") or [], dtype=np.int64)
@@ -208,6 +216,25 @@ def plan_export(result: Dict, folder: "str | Path", reference: Optional[str] = N
     return planned
 
 
+def deformation_check_text(result: Dict) -> str:
+    """Short label of the sample's deformation check ("" when it was not computed)."""
+    steps = [d for d in result.get("diagnostics", []) if not d.get("derived")]
+    return SHORT_LABELS.get(sample_check(steps), "")
+
+
+def sample_transform_type(result: Dict) -> str:
+    return "affine" if any(v == "affine" for v in (result.get("transform_choice") or {}).values()) else "similarity"
+
+
+def _layer_records(base_result: Dict, reference: Optional[str], pixel_sizes: Optional[Dict]) -> Dict:
+    """params.json "layers": transform_type with both matrices (against the export reference) per layer."""
+    if not reference or not any(d.get("step_matrix") is not None for d in base_result.get("diagnostics", [])):
+        return {}
+    variants = layer_matrix_variants(base_result, reference, pixel_sizes)
+    return {m: {"transform_type": v["transform_type"], "matrix_similarity": _matrix_to_list(v["matrix_similarity"]),
+                "matrix_affine": _matrix_to_list(v["matrix_affine"])} for m, v in variants.items()}
+
+
 def export_result(result: Dict, folder: "str | Path", reference: Optional[str] = None,
                   pixel_sizes: Optional[Dict] = None) -> Dict[str, str]:
     """Write a Xenium Explorer style "{modality}_imagealignment.csv" and a
@@ -228,6 +255,7 @@ def export_result(result: Dict, folder: "str | Path", reference: Optional[str] =
     "skipped: no matrix (registration failed)"."""
     folder = Path(folder)
     folder.mkdir(parents=True, exist_ok=True)
+    base_result = result
     result = _with_reference(result, reference, pixel_sizes)
     ref = result.get("reference_modality")
 
@@ -271,10 +299,16 @@ def export_result(result: Dict, folder: "str | Path", reference: Optional[str] =
                 "inlier_ratio": diag.get("inlier_ratio"),
                 "confidence": diag.get("confidence"),
                 "mirrored": diag.get("mirrored"),
+                "linear_deformation_mean_um": diag.get("linear_deformation_mean_um"),
+                "linear_deformation_max_um": diag.get("linear_deformation_max_um"),
+                "quad_r2_adj": diag.get("quad_r2_adj"),
+                "inlier_rms_um": diag.get("inlier_rms_um"),
             }
             for step, diag in diagnostics_by_step.items()
         },
         "export_status": status,
+        "deformation_check": deformation_check_text(result),
+        "layers": _layer_records(base_result, ref, pixel_sizes),
         "note": (
             "keypoints are a spatially thinned subset of the automatic RANSAC inliers "
             "(landmarks.suggest_landmarks); fixedX/fixedY are the exported matrix applied "
@@ -293,15 +327,16 @@ def export_result(result: Dict, folder: "str | Path", reference: Optional[str] =
 # ---------------------------------------------------------------------------
 
 SUMMARY_COLUMNS = ["sample", "confidence", "inliers_weakest_step", "inlier_ratio_weakest_step",
-                   "sift_diff_um_worst_step", "warnings", "reference", "review_status", "export_time",
-                   "tool_version"]
+                   "sift_diff_um_worst_step", "deformation_check", "linear_deformation_um", "transform_type",
+                   "warnings", "reference", "review_status", "export_time", "tool_version"]
 
 
 def not_run_row(sample_id: str, status_text: str, reference: Optional[str], tool_version: str) -> Dict[str, object]:
     """batch_summary.csv row for a sample with no result (blocked or never run): confidence blank,
     review status is the plain status text."""
     return {"sample": sample_id, "confidence": "", "inliers_weakest_step": "", "inlier_ratio_weakest_step": "",
-            "sift_diff_um_worst_step": "", "warnings": "", "reference": reference or "",
+            "sift_diff_um_worst_step": "", "deformation_check": "", "linear_deformation_um": "",
+            "transform_type": "", "warnings": "", "reference": reference or "",
             "review_status": status_text, "export_time": "", "tool_version": tool_version}
 
 
@@ -315,12 +350,18 @@ def summary_row(result: Dict, reference: Optional[str], review_status: str, expo
     diffs = [d["second_opinion_diff_mean_um"] for d in result.get("diagnostics", [])
              if d.get("second_opinion_diff_mean_um") is not None]
     warnings = " | ".join(" ".join(str(w).split()) for w in result.get("warnings") or [])
+    ok = result.get("status") == "ok"
+    linear = [d["linear_deformation_mean_um"] for d in result.get("diagnostics", [])
+              if not d.get("derived") and d.get("linear_deformation_mean_um") is not None]
     return {
         "sample": result.get("sample_id"),
         "confidence": result.get("confidence") if result.get("status") == "ok" else result.get("status"),
         "inliers_weakest_step": min((d["n_inliers"] for d in diags), default=""),
         "inlier_ratio_weakest_step": round(min(ratios), 4) if ratios else "",
         "sift_diff_um_worst_step": round(max(diffs), 4) if diffs else "",
+        "deformation_check": deformation_check_text(result) if ok else "",
+        "linear_deformation_um": round(max(linear), 3) if ok and linear else "",
+        "transform_type": sample_transform_type(result) if ok else "",
         "warnings": warnings,
         "reference": reference or result.get("reference_modality") or "",
         "review_status": review_status,

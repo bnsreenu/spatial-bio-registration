@@ -6,7 +6,7 @@ change it together with those rules."""
 from version import VERSION
 
 APP_NAME = "Spatial registration"
-LICENSE_NAME = "[LICENSE NAME: to be filled in]"
+LICENSE_NAME = "MIT License"
 
 ABOUT_TEXT = (
     f"{APP_NAME}\n"
@@ -104,10 +104,10 @@ TOPICS = [
      "- Medium: anything in between.\n"
      "A layer that goes through two steps (for example H&E to COMET to Xenium) gets the weakest of the "
      "steps that matter for the layer you are looking at. The overall sample confidence is shown "
-     "separately.\n\n"
+     "separately. A deformation check that is not \"none detected\" caps the confidence at medium.\n\n"
      "For a low-confidence sample: check that the right images are linked (for example the right "
-     "section and the right channel), and look at the overlay. Correction with landmarks is not "
-     "available yet."),
+     "section and the right channel), and look at the overlay. Manual landmark correction is not "
+          "included in this version."),
 
     ("Where files go: output folder, sessions, results",
      "The Data screen shows one Output folder (change it with \"Change...\"; the choice is remembered "
@@ -163,7 +163,13 @@ TOPICS = [
      "session, including samples that were blocked or never run (their confidence is blank and the "
      "review status says why, for example \"not run: needs at least two linked layers\"). Columns: "
      "sample, confidence, inliers_weakest_step, inlier_ratio_weakest_step, sift_diff_um_worst_step, "
+     "deformation_check, linear_deformation_um, transform_type, "
      "warnings, reference, review_status, export_time and tool_version.\n"
+     "- deformation_check: \"none detected\", \"stretch or shear likely\" or \"non-linear deformation "
+     "possible\" (see \"Tissue deformation and the affine option\"); blank when not computed.\n"
+     "- linear_deformation_um: the largest estimate over the steps of how much an affine fit would move "
+     "the alignment across the tissue, in micrometers.\n"
+     "- transform_type: \"affine\" when you chose the affine for any layer, otherwise \"similarity\".\n"
      "- inliers_weakest_step: the number of agreeing matching points in the alignment step that has the "
      "fewest (a sample has two or three steps).\n"
      "- inlier_ratio_weakest_step: the lowest share of matching points that agree, over the steps.\n"
@@ -174,14 +180,48 @@ TOPICS = [
      "Sessions (File > Save session) store the inputs, settings, reference, review status and results "
      "in one file."),
 
+    ("Tissue deformation and the affine option",
+     "Each alignment step is fitted as a similarity: rotation, shift and one uniform scale. If the tissue "
+     "is also stretched or sheared between the two images, a similarity cannot follow it. The program "
+     "therefore also fits an affine (which allows stretch and shear) to the same matching points and "
+     "reports a \"Deformation check\" on the confidence card:\n"
+     "- None detected: an affine would change the alignment by less than 1 um across the tissue, and the "
+     "leftover point errors show no smooth pattern.\n"
+     "- Stretch or shear likely: an affine would change the alignment by 1 um or more. A checkbox \"Use "
+     "affine (allows stretch and shear)\" appears (off by default). Turning it on uses the affine for "
+     "those steps, recomputes the matrices and overlays, and records transform_type and both matrices "
+     "in params.json. If the sample was accepted, you are asked first and it goes back to unreviewed.\n"
+     "- Non-linear deformation possible: the leftover errors have a smooth pattern but an affine would "
+     "not correct it. This is flagged only; it is not corrected.\n"
+     "When the check is not \"none detected\", the confidence is capped at medium, even if the match "
+     "itself is strong. Look at the overlay.\n\n"
+     "The error scales with the field of view. A 1 percent stretch gave about 2 um of error across a "
+     "1.2 mm core (measured). The figure of about 10 um across 6 mm is a calculation (the measured error "
+     "scaled up to 6 mm), not a measurement. In our synthetic tests on two cores, 1 percent "
+     "stretch or 1 degree shear gave about 2 to 4 um of error with a similarity, and 5 percent stretch or "
+     "3 degrees shear gave 12 to 15 um. The thresholds (1 um and an R squared of 0.05) were set from "
+     "two cores and checked on four cores, all with synthetic deformation; they have not been "
+     "validated on real data.\n\n"
+     "Xenium Explorer normally computes similarity alignments; whether it accepts a non-similarity "
+     "matrix has not been verified."),
+
     ("Known limits",
-     "Tested with real data: OME-Zarr H&E and COMET and Xenium folders without a morphology image "
-     "(four cores).\n"
-     "Tested only with files we generated from those data: OME-TIFF (H&E and multichannel) and plain "
-     "TIFF, and an Aperio-style SVS file. Generated files test our readers, not the quirks of real "
-     "scanner files.\n"
-     "Not tested with real files: SVS and NDPI from real scanners, OME-TIFF from real instruments, "
-     "Xenium morphology images, and loading the exported alignment in Xenium Explorer.\n\n"
-     "Not available yet: registration of serial sections (the images must show the same section), "
-     "choosing a channel by hand, and correction with landmarks."),
+     "- Manual landmark correction is not included in this version.\n"
+     "- Only a similarity (rotation, shift, one uniform scale) is computed, plus the optional affine "
+     "(allows stretch and shear). Nothing else is fitted.\n"
+     "- Elastic (non-linear) deformation is flagged by the deformation check but not corrected.\n"
+     "- The error from stretch or shear that is not modeled grows with the field of view.\n"
+     "- The deformation check thresholds were set from synthetic deformations (stretch, shear, smooth "
+     "elastic fields) on two cores and checked on four cores. They have not been tested on real "
+     "deformed tissue.\n"
+     "- Whether Xenium Explorer accepts a non-similarity (affine) matrix has not been verified.\n"
+     "- Real SVS and NDPI files and real Xenium morphology images have not been tested. Only files "
+     "generated from the UnumLocalia data were used (OME-TIFF, plain TIFF and an Aperio-style SVS "
+     "file), and those test the readers, not the quirks of real scanner files.\n"
+     "- Serial sections have not been tested. The tested images all show the same section.\n"
+     "- Pixel size metadata can disagree with the image. In the UnumLocalia data, the provided H&E "
+     "alignment implies a pixel size about 1.4 percent below the stated value (cause not determined). "
+     "The core01 COMET OME-XML states 0.2125 um while the image pyramid says 0.28 um, and the alignment "
+     "agrees with 0.28 um. For OME-Zarr the app uses the pyramid value. Check the pixel size shown on "
+     "each card."),
 ]

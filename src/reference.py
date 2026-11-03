@@ -130,3 +130,107 @@ def default_reference(modalities) -> "tuple[Optional[str], str]":
     if "he" in loaded:
         return "he", "Only H&E is loaded, so H&E is the reference."
     return None, ""
+
+
+# ---------------------------------------------------------------------------
+# Task 27: per-step similarity or affine, recomposed through the chain
+#
+# Each engine step "X_to_Y" in a result carries "step_matrix" (similarity)
+# and "affine_matrix" (or None): X native pixels to Y native pixels (to the
+# reference frame for a step onto the base reference). The matrix of layer X
+# into the base reference frame is  M_X = M_Y @ step_X  (M_base = identity),
+# which is what pipeline.run_sample builds. A choice is {source modality:
+# "affine"}; every step not named stays similarity. These functions work on
+# the engine's own (base) result, before apply_reference.
+# ---------------------------------------------------------------------------
+
+def _engine_steps(result: Dict) -> Dict[str, Dict]:
+    return {d["step"].split("_to_", 1)[0]: d for d in result.get("diagnostics", []) if not d.get("derived")}
+
+
+def _step_target(step: Dict) -> str:
+    return step["step"].split("_to_", 1)[1]
+
+
+def affine_available(result: Dict) -> List[str]:
+    """Source modalities of steps whose deformation check says stretch or shear is likely and that have an affine."""
+    from deformation import LINEAR, step_check
+    return [m for m, d in _engine_steps(result).items()
+            if d.get("affine_matrix") is not None and d.get("step_matrix") is not None and step_check(d) == LINEAR]
+
+
+def chain_steps(result: Dict, modality: str) -> List[str]:
+    """Source modalities of the engine steps that carry `modality` to the base reference, nearest first."""
+    steps, base = _engine_steps(result), result.get("reference_modality")
+    path, current = [], modality
+    while current != base and current in steps and current not in path:
+        path.append(current)
+        current = _step_target(steps[current])
+    return path
+
+
+def compose_with_choice(result: Dict, choice: Dict[str, str]) -> Dict[str, Optional[np.ndarray]]:
+    """{modality: matrix into the base reference} with the steps in `choice` ("affine") using their affine
+    matrix and all other steps their similarity matrix, composed M_X = M_Y @ step_X. A layer is None when a step
+    on its chain has no matrix."""
+    steps, base = _engine_steps(result), result.get("reference_modality")
+    memo: Dict[str, Optional[np.ndarray]] = {base: np.eye(3)}
+
+    def matrix(modality: str) -> Optional[np.ndarray]:
+        if modality in memo:
+            return memo[modality]
+        memo[modality] = None
+        step = steps.get(modality)
+        if step is not None and step.get("step_matrix") is not None:
+            use = step.get("affine_matrix") if choice.get(modality) == "affine" else None
+            step_m = np.asarray(use if use is not None else step["step_matrix"], dtype=float)
+            parent = matrix(_step_target(step))
+            memo[modality] = None if parent is None else parent @ step_m
+        return memo[modality]
+
+    return {m: matrix(m) for m in result.get("matrices", {})}
+
+
+def with_transform_choice(result: Dict, choice: Dict[str, str]) -> Dict:
+    """A copy of the engine result using `choice` ({source modality: "affine"}); entries that are not available
+    are dropped. With an empty choice the stored similarity matrices are returned exactly as the engine made them."""
+    usable = set(affine_available(result))
+    choice = {m: "affine" for m, v in choice.items() if v == "affine" and m in usable}
+    out = dict(result)
+    out["transform_choice"] = choice
+    similarity = result.get("matrices_similarity") or result.get("matrices", {})
+    out["matrices_similarity"] = similarity
+    if not choice:
+        out["matrices"] = dict(similarity)
+    else:
+        out["matrices"] = compose_with_choice(result, choice)
+    return out
+
+
+def layer_transform_type(result: Dict, modality: str) -> str:
+    choice = result.get("transform_choice") or {}
+    return "affine" if any(choice.get(m) == "affine" for m in chain_steps(result, modality)) else "similarity"
+
+
+def layer_matrix_variants(result: Dict, reference: str, pixel_sizes: Optional[Dict] = None) -> Dict[str, Dict]:
+    """{modality: {"transform_type", "matrix_similarity", "matrix_affine"}} against `reference`. matrix_affine uses
+    the affine for the steps where the deformation check offers it (the option's meaning), and is None for a layer
+    whose chain has no such step (it would equal the similarity matrix)."""
+    similarity = with_transform_choice({**result, "transform_choice": {}}, {})
+    offered = affine_available(result)
+    affine_matrices = compose_with_choice(result, {m: "affine" for m in offered})
+    affine_result = dict(result)
+    affine_result["matrices"] = affine_matrices
+    sim_ref = apply_reference(similarity, reference, pixel_sizes)["matrices"]
+    aff_ref = apply_reference(affine_result, reference, pixel_sizes)["matrices"]
+    cur_ref = apply_reference(result, reference, pixel_sizes)["matrices"]
+    out = {}
+    for m in result.get("matrices", {}):
+        if m == reference:
+            continue
+        a, s, c = aff_ref.get(m), sim_ref.get(m), cur_ref.get(m)
+        differs = a is not None and s is not None and not np.array_equal(a, s)
+        used = c is not None and s is not None and not np.array_equal(c, s)
+        out[m] = {"transform_type": "affine" if used else "similarity",
+                  "matrix_similarity": s, "matrix_affine": a if differs else None}
+    return out

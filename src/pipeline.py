@@ -49,6 +49,7 @@ import numpy as np
 import pandas as pd
 
 import engine
+import deformation
 import evaluation as ev
 import io_layers
 import render
@@ -85,6 +86,23 @@ def describe_layer(layer: Dict) -> Dict:
 def _open_working(descriptor: Dict, channel=None):
     img, achieved_um = io_layers.open_layer(descriptor, WORKING_UM_PER_PX, channel=channel)
     return img, achieved_um
+
+
+def _deformation_extra(fixed_img, moving_img, reg: Dict, fixed_um: float, moving_um: float) -> Dict:
+    """Task 27: affine and deformation numbers for a step; never allowed to break the registration."""
+    try:
+        return deformation.analyze_step(fixed_img, moving_img, reg, fixed_um, moving_um, METHOD)
+    except Exception:  # noqa: BLE001 - the similarity result stands on its own
+        return {"affine_reg": None, "linear_deformation_mean_um": None, "linear_deformation_max_um": None,
+                "quad_r2_adj": None, "inlier_rms_um": None}
+
+
+def _store_deformation(diag: Dict, step_matrix: Optional[np.ndarray], extra: Dict) -> None:
+    """Keep, per step, the similarity step matrix, the affine step matrix (same frame) and the deformation numbers."""
+    diag["step_matrix"] = None if step_matrix is None else np.asarray(step_matrix, dtype=float)
+    diag["affine_matrix"] = extra["affine_reg"] if step_matrix is not None else None
+    for key in ("linear_deformation_mean_um", "linear_deformation_max_um", "quad_r2_adj", "inlier_rms_um"):
+        diag[key] = extra[key]
 
 
 def _step_diagnostics(reg: Dict, step_name: str) -> Dict:
@@ -132,10 +150,14 @@ def _register_direct(
         method=METHOD, mirror_test=True,
     )
     diag = _step_diagnostics(reg, step_name)
+    extra = _deformation_extra(fixed_img, moving_img, reg, fixed_ws_um, moving_ws_um)
     m_native = None
     if reg["M"] is not None:
         if fixed_native_um is not None and moving_native_um is not None:
             m_native = ev.to_working_matrix(reg["M"], moving_ws_um, fixed_ws_um, moving_native_um, fixed_native_um)
+            if extra["affine_reg"] is not None:
+                extra["affine_reg"] = ev.to_working_matrix(
+                    extra["affine_reg"], moving_ws_um, fixed_ws_um, moving_native_um, fixed_native_um)
             diag["src_pts"] = reg["src_pts"] * (moving_ws_um / moving_native_um)
             diag["dst_pts"] = reg["dst_pts"] * (fixed_ws_um / fixed_native_um)
             diag["src_frame"] = "moving layer native pixels"
@@ -152,6 +174,7 @@ def _register_direct(
             diag["src_frame"] = "moving working-resolution pixels"
             diag["dst_frame"] = "fixed working-resolution pixels"
     diag["match_ids"] = reg["match_ids"]
+    _store_deformation(diag, m_native, extra)
     return m_native, diag
 
 
@@ -171,18 +194,26 @@ def _register_to_rendered_xenium_reference(
         method=METHOD, mirror_test=True,
     )
     diag = _step_diagnostics(reg, step_name)
+    extra = _deformation_extra(layer_img, render_img, reg, layer_ws_um, WORKING_UM_PER_PX)
     m_native_to_ref = None
     if reg["M"] is not None and layer_native_um is not None:
-        render_px_to_layer_ws = reg["M"]
-        xenium_um_to_layer_ws = render_px_to_layer_ws @ np.linalg.inv(s_mat)
-        b_mat = ev.to_working_matrix(xenium_um_to_layer_ws, 1.0, layer_ws_um, 1.0, layer_native_um)
+        def to_reference(m_render_to_layer_ws):
+            xenium_um_to_layer_ws = m_render_to_layer_ws @ np.linalg.inv(s_mat)
+            b = ev.to_working_matrix(xenium_um_to_layer_ws, 1.0, layer_ws_um, 1.0, layer_native_um)
+            return np.diag([1.0 / REFERENCE_UM_PER_PX, 1.0 / REFERENCE_UM_PER_PX, 1.0]) @ np.linalg.inv(b)
+
+        b_mat = ev.to_working_matrix(reg["M"] @ np.linalg.inv(s_mat), 1.0, layer_ws_um, 1.0, layer_native_um)
         try:
-            b_inv = np.linalg.inv(b_mat)
+            np.linalg.inv(b_mat)
         except np.linalg.LinAlgError:
-            diag["warnings"].append(f"{step_name}: Xenium-to-layer matrix B is singular, cannot invert.")
+            diag["warnings"].append(f"{step_name}: the Xenium-to-layer transform is singular and cannot be inverted.")
         else:
-            d_mat = np.diag([1.0 / REFERENCE_UM_PER_PX, 1.0 / REFERENCE_UM_PER_PX, 1.0])
-            m_native_to_ref = d_mat @ b_inv
+            m_native_to_ref = to_reference(reg["M"])
+            if extra["affine_reg"] is not None:
+                try:
+                    extra["affine_reg"] = to_reference(extra["affine_reg"])
+                except np.linalg.LinAlgError:
+                    extra["affine_reg"] = None
             # Points: the layer (fixed image here) side in layer native
             # pixels, the render side (moving) via S into Xenium um, then
             # into reference pixels, so src_pts -> dst_pts is the same
@@ -195,6 +226,7 @@ def _register_to_rendered_xenium_reference(
             diag["dst_frame"] = "reference pixels (Xenium um / 0.2125)"
     elif reg["M"] is not None and layer_native_um is None:
         diag["warnings"].append(f"{step_name}: layer has no native pixel size, cannot build a native-to-reference matrix.")
+    _store_deformation(diag, m_native_to_ref, extra)
     return m_native_to_ref, diag
 
 
@@ -279,9 +311,9 @@ def run_sample(
         if ref_rendered_xenium:
             reference_native_um = REFERENCE_UM_PER_PX
             warnings.append(
-                "reference is a rendered Xenium image with no native raster pixel size; "
-                f"the reference frame is Xenium micrometers / {REFERENCE_UM_PER_PX:g} "
-                "(the Xenium Explorer DAPI grid convention), matching chain.py."
+                "The reference is a drawn Xenium nucleus image with no native raster pixel size. "
+                f"The reference frame is Xenium micrometers divided by {REFERENCE_UM_PER_PX:g}, "
+                "the Xenium Explorer DAPI grid convention."
             )
             ref_working_img = None  # built lazily per non-reference layer via render_nuclei_in_folder
             ref_working_um = None
@@ -339,7 +371,7 @@ def run_sample(
                     warnings.append(
                         f"{modality}: registering directly to the rendered Xenium reference "
                         "(comet is absent or failed to register to it); this path is less "
-                        "reliable and is not exercised by data/UnumLocalia."
+                        "reliable and has not been tested on real data."
                     )
                     layer_native_um = layer_descriptor.get("pixel_size_um")
                     layer_working_img, layer_working_um = _open_working(layer_descriptor, channel=layer.get("channel"))
@@ -389,12 +421,14 @@ def run_sample(
         overall_confidence = _overall_confidence(diagnostics, matrices)
         status = "ok" if any(m is not None for m in matrices.values()) else "failed"
 
-        return _finish(
+        res = _finish(
             sample_id, status, reference_modality, reference_native_um,
             matrices, diagnostics, warnings, t0,
             None if status == "ok" else "all registration steps failed",
             confidence=overall_confidence,
         )
+        _add_deformation_summary(res)
+        return res
 
     except Exception as exc:  # noqa: BLE001 - run_batch must continue after a per-sample failure
         warnings.append(f"unhandled exception: {exc}")
@@ -402,6 +436,25 @@ def run_sample(
             sample_id, "failed", None, None, matrices, diagnostics, warnings, t0,
             f"{type(exc).__name__}: {exc}\n{traceback.format_exc()}",
         )
+
+
+def cap_confidence(confidence: str, check: Optional[str]) -> str:
+    """Task 27: a deformation check other than "none" caps confidence at medium (never raises it)."""
+    if check in (deformation.LINEAR, deformation.NONLINEAR) and CONFIDENCE_ORDER.get(confidence, 0) > CONFIDENCE_ORDER["medium"]:
+        return "medium"
+    return confidence
+
+
+def _add_deformation_summary(res: Dict) -> None:
+    """Add match_confidence (the existing rule's result), deformation_check, the untouched similarity
+    matrices and an empty transform choice; cap res["confidence"] when the check is not "none"."""
+    matrices = res["matrices"]
+    steps = [d for d in res["diagnostics"] if matrices.get(d["step"].split("_to_")[0]) is not None]
+    res["match_confidence"] = res["confidence"]
+    res["deformation_check"] = deformation.sample_check(steps) if res["status"] == "ok" else None
+    res["matrices_similarity"] = dict(matrices)
+    res["transform_choice"] = {}
+    res["confidence"] = cap_confidence(res["confidence"], res["deformation_check"])
 
 
 def _overall_confidence(diagnostics: List[Dict], matrices: Dict) -> str:

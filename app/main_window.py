@@ -15,6 +15,7 @@ from PyQt5.QtGui import QColor, QPixmap
 from PyQt5.QtWidgets import QAction, QApplication, QListWidgetItem, QMainWindow
 
 import pipeline
+import deformation
 import reference as reference_mod
 import review_overlay as ro
 import session
@@ -167,6 +168,7 @@ def connect_signals(win) -> None:
     s3.accept.clicked.connect(lambda: set_review(win, review_sample_id(win), st_review.ACCEPTED))
     s3.reject.clicked.connect(lambda: set_review(win, review_sample_id(win), st_review.REJECTED))
     s3.accept_high.clicked.connect(lambda: accept_all_high(win))
+    s3.use_affine.toggled.connect(lambda checked: on_affine_toggled(win, checked))
 
 
 # ---------------------------------------------------------------- shell
@@ -923,6 +925,42 @@ def refresh_status_row(win) -> None:
     s3.export_accepted.setEnabled(bool(win.state["results"]))
 
 
+def set_transform_choice(win, sid: str, use_affine: bool) -> bool:
+    """Switch the sample between similarity and affine for the steps where the check allows it. Recomposes
+    the matrices from the stored chain through reference.py (no re-registration). An accepted sample goes
+    back to unreviewed, after asking. Returns False when the user declines or nothing changes."""
+    res = win.state["results"].get(sid)
+    if res is None or res.get("status") != "ok":
+        return False
+    mods = reference_mod.affine_available(res)
+    choice = {m: "affine" for m in mods} if use_affine else {}
+    if choice == (res.get("transform_choice") or {}):
+        return False
+    accepted = st_review.entry(win.state["review"], sid)["status"] == st_review.ACCEPTED
+    if accepted and not dialogs.confirm(
+            win, "Change the transform type?",
+            f"Change {sid} to {'affine' if use_affine else 'similarity'}? This changes its matrices and "
+            "sets its review status back to unreviewed (currently: accepted).", default_yes=False):
+        return False
+    win.state["results"][sid] = reference_mod.with_transform_choice(res, choice)
+    if accepted:
+        st_review.set_status(win.state["review"], sid, st_review.UNREVIEWED)
+    win.state["exports"].pop(sid, None)
+    win.overlay_cache.clear()
+    autosave_session(win, sid)
+    refresh_review_items(win)
+    show_review(win)
+    return True
+
+
+def on_affine_toggled(win, checked: bool) -> None:
+    sid = review_sample_id(win)
+    if sid and not set_transform_choice(win, sid, checked):
+        win.s3.use_affine.blockSignals(True)
+        win.s3.use_affine.setChecked(not checked)
+        win.s3.use_affine.blockSignals(False)
+
+
 def set_review(win, sid: str, status: str) -> None:
     if sid not in win.state["results"]:
         return
@@ -1058,7 +1096,9 @@ def show_layer_text(win) -> None:
     elif modality:
         steps = summary.layer_steps(res, modality, ref)
         level = summary.steps_level(res, steps)
-        reason = summary.layer_headline(level, modality, ref)
+        capped = summary.capped_level(level, steps)
+        reason = summary.deformation_reason(level, capped, modality, ref)
+        level = capped
         if level == "low":
             reason += " " + errors.LOW_ADVICE
     else:
@@ -1066,6 +1106,13 @@ def show_layer_text(win) -> None:
     set_badge(s3.badge, level)
     s3.reason.setText(reason)
     s3.steps.text.setPlainText(summary.steps_text(steps))
+    s3.deformation.setText(deformation.check_text(steps) if steps else "")
+    s3.deformation.setVisible(bool(steps))
+    choices = reference_mod.affine_available(res) if res["status"] == "ok" else []
+    s3.use_affine.blockSignals(True)
+    s3.use_affine.setChecked(any(v == "affine" for v in (res.get("transform_choice") or {}).values()))
+    s3.use_affine.blockSignals(False)
+    s3.use_affine.setVisible(bool(choices))
     s3.steps.toggle.setVisible(bool(steps))
     low = level == "low" or (res["status"] == "ok" and res["confidence"] == "low")
     s3.banner.setVisible(low)
@@ -1212,6 +1259,8 @@ def reference_for(win, sid: str) -> Optional[str]:
 
 
 SUMMARY_NAME = "batch_summary.csv"
+AFFINE_EXPLORER_LINE = ("Xenium Explorer normally computes similarity alignments; whether it accepts a "
+                        "non-similarity matrix has not been verified.")
 
 
 def plan_samples(win, folder: str, ids: List[str]):
@@ -1275,6 +1324,8 @@ def export_text(win, folder: str, chosen: List[str], batch: bool):
     text = f"Destination: {folder}\n\nThese files will be written:\n\n" + ("\n".join(lines) if lines else "(none)")
     if notes:
         text += "\n\n" + "\n".join(notes)
+    if any(session.sample_transform_type(res) == "affine" for _s, res, *_r in plans):
+        text += "\n\n" + AFFINE_EXPLORER_LINE
     nomat = no_matrix_reasons(win, folder, session_ids(win) if batch else list(chosen))
     if nomat:
         text += "\n\n" + "\n".join(f"Not written: no matrices ({reason}): {sid}" for sid, reason in nomat.items())

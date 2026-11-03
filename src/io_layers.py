@@ -117,14 +117,13 @@ def _describe_xenium(path: Path) -> Dict:
         inner["format"] = "xenium_folder_morphology"
         inner["warnings"] = inner.get("warnings", []) + [
             f"using morphology image {morphology_path.name} found in this Xenium folder "
-            "(this code path has not been exercised on real UnumLocalia data, since no "
-            "core in data/UnumLocalia ships a morphology file)."
+            "(this has not been tested on a real Xenium morphology image)."
         ]
         return inner
 
     warnings.append(
-        "no morphology image found in this Xenium folder; nuclei will be rendered "
-        "from nucleus_boundaries.parquet (render.render_nuclei_in_folder) instead of "
+        "no morphology image found in this Xenium folder; nuclei will be drawn "
+        "from nucleus_boundaries.parquet instead of "
         "a real morphology/DAPI image. transcripts.parquet is never read."
     )
     return {
@@ -356,9 +355,7 @@ def _describe_openslide(path: Path) -> Dict:
         ) from exc
 
     warnings: List[str] = [
-        "SVS/NDPI support has not been exercised on a real whole-slide file; "
-        "data/UnumLocalia contains no SVS or NDPI files to test against "
-        "(see outputs/task11_notes.md)."
+        "SVS/NDPI support has not been tested on a real whole-slide file."
     ]
 
     slide = openslide.OpenSlide(str(path))

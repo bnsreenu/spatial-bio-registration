@@ -270,7 +270,7 @@ def register_pair(
         warnings.append(
             f"pixel sizes differ by more than {PIXEL_SIZE_AGREE_RTOL * 100:g} percent "
             f"({px_fixed_um:.6g} vs {px_moving_um:.6g} um/px); both images were resampled once to "
-            f"{max(px_fixed_um, px_moving_um):.6g} um/px inside register_pair."
+                        f"{max(px_fixed_um, px_moving_um):.6g} um/px before matching."
         )
 
     m_native = None
