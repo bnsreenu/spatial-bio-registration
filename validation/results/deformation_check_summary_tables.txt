@@ -1,0 +1,109 @@
+## 1. Real cores, per step
+| sample | step | check | linear_mean_um | linear_max_um | quad_r2_adj | inlier_rms_um | match_confidence | overall_confidence |
+|---|---|---|---|---|---|---|---|---|
+| core01_hcc | comet_to_xenium | none detected | 0.102 | 0.234 | 0.005 | 1.181 | high | high |
+| core01_hcc | he_to_comet | none detected | 0.107 | 0.251 | 0.012 | 1.029 | high | high |
+| core02_non_tumour | comet_to_xenium | none detected | 0.108 | 0.208 | 0.021 | 0.931 | high | high |
+| core02_non_tumour | he_to_comet | none detected | 0.036 | 0.087 | 0.020 | 0.826 | high | high |
+| core03_tonsil | comet_to_xenium | none detected | 0.589 | 1.540 | -0.005 | 1.312 | high | high |
+| core03_tonsil | he_to_comet | none detected | 0.167 | 0.370 | 0.029 | 0.804 | high | high |
+| core04_hca | comet_to_xenium | none detected | 0.254 | 0.573 | 0.025 | 1.134 | high | high |
+| core04_hca | he_to_comet | none detected | 0.320 | 0.930 | 0.022 | 1.042 | high | high |
+
+## Margin table (value / threshold; below 1 means not flagged)
+| sample | step | linear_mean / 1 um | linear_max / 1 um | adj R2 / 0.05 |
+|---|---|---|---|---|
+| core01_hcc | comet_to_xenium | 0.102 | 0.234 | 0.096 |
+| core01_hcc | he_to_comet | 0.107 | 0.251 | 0.241 |
+| core02_non_tumour | comet_to_xenium | 0.108 | 0.208 | 0.426 |
+| core02_non_tumour | he_to_comet | 0.036 | 0.087 | 0.398 |
+| core03_tonsil | comet_to_xenium | 0.589 | 1.540 | -0.095 |
+| core03_tonsil | he_to_comet | 0.167 | 0.370 | 0.572 |
+| core04_hca | comet_to_xenium | 0.254 | 0.573 | 0.506 |
+| core04_hca | he_to_comet | 0.320 | 0.930 | 0.445 |
+
+Flagged steps: none
+
+## 2. Generated files vs core01
+| sample | step | check | linear_mean_um | d_linear_vs_core01 | quad_r2_adj | d_r2_vs_core01 | overall |
+|---|---|---|---|---|---|---|---|
+| demo_A | comet_to_xenium | none detected | 0.102 | 0.000 | 0.005 | 0.000 | high |
+| demo_A | he_to_comet | none detected | 0.098 | -0.009 | 0.010 | -0.002 | high |
+| demo_B | comet_to_xenium | none detected | 0.102 | 0.000 | 0.005 | 0.000 | high |
+| demo_B | he_to_comet | none detected | 0.198 | 0.091 | 0.009 | -0.003 | high |
+
+## 4a. Match confidence vs actual error (accurate = mean error <= 2 um)
+Four cores: core01 and core03 full Task 25 runs (180) plus core02 and core04 subset runs.
+acc         accurate  not accurate
+confidence                        
+high             138             4
+low                0            40
+medium            18            36
+
+Subset runs only, all four cores (same cases everywhere):
+acc         accurate  not accurate
+confidence                        
+high              62             3
+low                0            14
+medium             5            28
+
+Overall (capped) confidence vs error, subset runs, all four cores:
+acc      accurate  not accurate
+overall                        
+high           46             0
+low             0            14
+medium         21            31
+
+## 4b. Check behavior on subset runs, all four cores
+Runs with a result and a check: 112. Undeformed (floor < 1 um): 51. Deformed (floor >= 1 um): 61.
+False alarms (fired on undeformed): 3 of 51
+Misses (not fired on deformed): 1 of 61
+False alarms:
+| core | step | case | magnitude | err_mean_um | floor_mean_um | confidence | linear_mean_um | quad_r2_adj_check | check |
+|---|---|---|---|---|---|---|---|---|---|
+| core02_non_tumour | comet_to_xenium | g_elastic | 5 | 0.754 | 0.757 | high | 0.218 | 0.083 | non-linear deformation possible |
+| core03_tonsil | comet_to_xenium | g_elastic | 5 | 0.922 | 0.910 | high | 0.548 | 0.050 | non-linear deformation possible |
+| core04_hca | he_to_comet | g_elastic | 5 | 1.155 | 0.983 | high | 0.435 | 0.101 | non-linear deformation possible |
+Misses:
+| core | step | case | magnitude | err_mean_um | floor_mean_um | confidence | linear_mean_um | quad_r2_adj_check | check |
+|---|---|---|---|---|---|---|---|---|---|
+| core03_tonsil | comet_to_xenium | g_elastic | 5 | 1.426 | 1.347 | medium | 0.358 | 0.025 | none detected |
+Runs rated high on match confidence but flagged: 19 of 65 high runs
+
+Check outcome by truth (False = undeformed):
+check     non-linear deformation possible  none detected  stretch or shear likely
+deformed                                                                         
+False                                   3             48                        0
+True                                   13              1                       47
+Runs where the engine returned no matrix: 0
+Registration failures (error > 2 um, floor < 1 um): 0
+
+## 4c. Threshold search (subset runs; deformed = floor >= 1 um)
+| linear_um | r2 | false_alarms | misses | errors |
+|---|---|---|---|---|
+| 0.750 | 0.080 | 2 | 1 | 3 |
+| 0.750 | 0.100 | 1 | 3 | 4 |
+| 1.000 | 0.080 | 2 | 2 | 4 |
+| 1.250 | 0.080 | 2 | 2 | 4 |
+| 1.500 | 0.080 | 2 | 2 | 4 |
+| 2.000 | 0.080 | 2 | 2 | 4 |
+| 0.750 | 0.050 | 3 | 1 | 4 |
+| 1.000 | 0.050 | 3 | 1 | 4 |
+| 1.250 | 0.050 | 3 | 1 | 4 |
+| 1.500 | 0.050 | 3 | 1 | 4 |
+Current thresholds (1.0 um, 0.05): false alarms 3, misses 1
+undeformed: linear mean um min/median/max = 0.04 / 0.17 / 0.68; adj R2 = -0.009 / 0.018 / 0.101
+deformed: linear mean um min/median/max = 0.35 / 2.26 / 9.55; adj R2 = 0.025 / 0.344 / 0.832
+
+Per case type, subset runs:
+| case | n | floor_mean | err_mean | fired |
+|---|---|---|---|---|
+| a_translation | 8 | 0.000 | 0.105 | 0 |
+| b_rotation | 16 | 0.000 | 0.134 | 0 |
+| baseline_repeat | 8 | 0.000 | 0.000 | 0 |
+| c_mirror | 8 | 0.000 | 0.113 | 0 |
+| d_scale | 8 | 0.000 | 0.073 | 0 |
+| e_stretch_x | 16 | 2.757 | 3.483 | 16 |
+| f_shear | 8 | 3.233 | 4.059 | 8 |
+| g_elastic | 32 | 1.981 | 2.241 | 31 |
+| h_rot30_stretch3 | 8 | 5.477 | 7.756 | 8 |

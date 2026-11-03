@@ -1,7 +1,7 @@
-"""Task 29: images for the Video 2b slides and Word document (read-only analysis, not part of the app).
+"""Example figure images (read-only analysis, not part of the app).
 
 Usage (from the repository root, UNUMLOCALIA_DIR set):
-       python validation/scripts/task29_video2b_images.py [--core core01_hcc] [--out validation_rerun_output/video2b_images]
+       python validation/scripts/example_figure_images.py [--core core01_hcc] [--out validation_rerun_output/example_figure_images]
 
 Everything comes from the app's own functions: pipeline.run_sample (matrices, diagnostics),
 pipeline._open_working / render.render_nuclei_in_folder (working images), engine._prepare_working_pair and
@@ -181,7 +181,7 @@ def step_matches(fixed, fixed_um, moving, moving_um):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--core", default="core01_hcc")
-    ap.add_argument("--out", default="validation_rerun_output/video2b_images")
+    ap.add_argument("--out", default="validation_rerun_output/example_figure_images")
     args = ap.parse_args()
     out = (ROOT / args.out / args.core)
     out.mkdir(parents=True, exist_ok=True)

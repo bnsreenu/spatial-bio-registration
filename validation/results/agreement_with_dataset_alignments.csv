@@ -1,0 +1,765 @@
+core_id,section,item,source,metric,value,unit,note
+core01_hcc,1_keypoints,he,provided,n_keypoints,20,,
+core01_hcc,1_keypoints,he,provided_matrix,residual_mean,0.5975657810496362,um,
+core01_hcc,1_keypoints,he,provided_matrix,residual_median,0.5059216587158777,um,
+core01_hcc,1_keypoints,he,provided_matrix,residual_rms,0.7043624561626539,um,
+core01_hcc,1_keypoints,he,provided_matrix,residual_max,1.7586905769519743,um,
+core01_hcc,1_keypoints,he,provided_matrix,quadratic_surface_R2,0.1566886707675923,,6 terms per component
+core01_hcc,1_keypoints,he,provided_matrix,quadratic_surface_R2_adjusted,-0.1444939468154105,,
+core01_hcc,1_keypoints,he,provided_matrix,quadratic_surface_R2_perm_p,0.8515,,2000 shuffles of residual vectors
+core01_hcc,1_keypoints,he,provided_matrix,quadratic_surface_R2_null_95pct,0.4460706697801588,,
+core01_hcc,1_keypoints,he,similarity_refit,residual_mean,0.5975917847509019,um,
+core01_hcc,1_keypoints,he,affine_refit,residual_mean,0.5932722337248613,um,
+core01_hcc,1_keypoints,he,similarity_refit,residual_median,0.5060709439085056,um,
+core01_hcc,1_keypoints,he,affine_refit,residual_median,0.5028490559416176,um,
+core01_hcc,1_keypoints,he,similarity_refit,residual_rms,0.7043620678489518,um,
+core01_hcc,1_keypoints,he,affine_refit,residual_rms,0.696739975917086,um,
+core01_hcc,1_keypoints,he,similarity_refit,residual_max,1.7584591717011255,um,
+core01_hcc,1_keypoints,he,affine_refit,residual_max,1.7583896475948637,um,
+core01_hcc,1_keypoints,he,affine_vs_similarity,rms_reduction_pct,1.0821269741488004,%,
+core01_hcc,1_keypoints,he,affine_vs_similarity,rms_reduction_expected_from_noise_pct,2.817468419244995,%,expected if the 2 extra parameters only fit random error
+core01_hcc,1_keypoints,he,affine_refit,anisotropy_pct,0.06174048450708902,%,ratio of linear-part singular values minus 1
+core01_hcc,1_keypoints,he,affine_refit,scale_x_over_y_pct,-0.03771192166774906,%,
+core01_hcc,1_keypoints,he,affine_refit,shear_deg,0.02799184367762564,deg,angle between fitted axes minus 90
+core01_hcc,1_keypoints,he,similarity_refit,scale,0.9419467097942555,,
+core01_hcc,1_keypoints,he,provided_matrix,scale,0.941948786971787,,
+core01_hcc,1_keypoints,comet,provided,n_keypoints,40,,
+core01_hcc,1_keypoints,comet,provided_matrix,residual_mean,0.5938074571320768,um,
+core01_hcc,1_keypoints,comet,provided_matrix,residual_median,0.5256072981511046,um,
+core01_hcc,1_keypoints,comet,provided_matrix,residual_rms,0.6620620567243527,um,
+core01_hcc,1_keypoints,comet,provided_matrix,residual_max,1.411884368511365,um,
+core01_hcc,1_keypoints,comet,provided_matrix,quadratic_surface_R2,0.27983516705674527,,6 terms per component
+core01_hcc,1_keypoints,comet,provided_matrix,quadratic_surface_R2_adjusted,0.1739285739768548,,
+core01_hcc,1_keypoints,comet,provided_matrix,quadratic_surface_R2_perm_p,0.0025,,2000 shuffles of residual vectors
+core01_hcc,1_keypoints,comet,provided_matrix,quadratic_surface_R2_null_95pct,0.21610651651210322,,
+core01_hcc,1_keypoints,comet,similarity_refit,residual_mean,0.5937968164217547,um,
+core01_hcc,1_keypoints,comet,affine_refit,residual_mean,0.5499792242537284,um,
+core01_hcc,1_keypoints,comet,similarity_refit,residual_median,0.5256476500474946,um,
+core01_hcc,1_keypoints,comet,affine_refit,residual_median,0.5263286287738735,um,
+core01_hcc,1_keypoints,comet,similarity_refit,residual_rms,0.662061784108692,um,
+core01_hcc,1_keypoints,comet,affine_refit,residual_rms,0.6242429800430271,um,
+core01_hcc,1_keypoints,comet,similarity_refit,residual_max,1.4126045784395673,um,
+core01_hcc,1_keypoints,comet,affine_refit,residual_max,1.3629788438791723,um,
+core01_hcc,1_keypoints,comet,affine_vs_similarity,rms_reduction_pct,5.712277158026701,%,
+core01_hcc,1_keypoints,comet,affine_vs_similarity,rms_reduction_expected_from_noise_pct,1.3245617934069753,%,expected if the 2 extra parameters only fit random error
+core01_hcc,1_keypoints,comet,affine_refit,anisotropy_pct,0.12176054728814112,%,ratio of linear-part singular values minus 1
+core01_hcc,1_keypoints,comet,affine_refit,scale_x_over_y_pct,0.1045529788616717,%,
+core01_hcc,1_keypoints,comet,affine_refit,shear_deg,-0.03572468816520313,deg,angle between fitted axes minus 90
+core01_hcc,1_keypoints,comet,similarity_refit,scale,1.3139685049580587,,
+core01_hcc,1_keypoints,comet,provided_matrix,scale,1.3139706691595114,,
+core01_hcc,3_auto_vs_provided,comet_to_fixed,run1_vs_run2,max_abs_matrix_difference,0.0,,array_equal=True
+core01_hcc,3_auto_vs_provided,he_to_fixed,run1_vs_run2,max_abs_matrix_difference,0.0,,array_equal=True
+core01_hcc,3_auto_vs_provided,confidence,automatic,confidence,high,,
+core01_hcc,2_decomposition,he_to_fixed,provided,scale,0.941948786971787,,
+core01_hcc,2_decomposition,he_to_fixed,provided,rotation_deg,0.5464110107768233,,
+core01_hcc,2_decomposition,he_to_fixed,provided,tx_px,8082.61885488817,,
+core01_hcc,2_decomposition,he_to_fixed,provided,ty_px,18396.28610188189,,
+core01_hcc,2_decomposition,he_to_fixed,provided,det_sign,1.0,,
+core01_hcc,2_decomposition,he_to_fixed,provided,non_similarity,0.0,,
+core01_hcc,2_decomposition,he_to_fixed,provided,tx_um,1717.5565066637362,um,
+core01_hcc,2_decomposition,he_to_fixed,provided,ty_um,3909.2107966499016,um,
+core01_hcc,2_decomposition,he_to_fixed,provided,implied_pixel_size_um,0.20016411723150473,um,scale x 0.2125 um (target frame pixel)
+core01_hcc,2_decomposition,he_to_fixed,provided,metadata_pixel_size_um,0.20312503808594465,um,
+core01_hcc,2_decomposition,he_to_fixed,provided,implied_vs_metadata_pct,-1.4576838396392677,%,
+core01_hcc,2_decomposition,he_to_fixed,automatic,scale,0.9416867668622861,,
+core01_hcc,2_decomposition,he_to_fixed,automatic,rotation_deg,0.563114185531467,,
+core01_hcc,2_decomposition,he_to_fixed,automatic,tx_px,8085.216468448368,,
+core01_hcc,2_decomposition,he_to_fixed,automatic,ty_px,18397.186194713853,,
+core01_hcc,2_decomposition,he_to_fixed,automatic,det_sign,1.0,,
+core01_hcc,2_decomposition,he_to_fixed,automatic,non_similarity,1.667827981717139e-16,,
+core01_hcc,2_decomposition,he_to_fixed,automatic,tx_um,1718.1084995452782,um,
+core01_hcc,2_decomposition,he_to_fixed,automatic,ty_um,3909.4020663766937,um,
+core01_hcc,2_decomposition,he_to_fixed,automatic,implied_pixel_size_um,0.2001084379582358,um,scale x 0.2125 um (target frame pixel)
+core01_hcc,2_decomposition,he_to_fixed,automatic,metadata_pixel_size_um,0.20312503808594465,um,
+core01_hcc,2_decomposition,he_to_fixed,automatic,implied_vs_metadata_pct,-1.4850951690320358,%,
+core01_hcc,2_decomposition,comet_to_fixed,provided,scale,1.3139706691595114,,
+core01_hcc,2_decomposition,comet_to_fixed,provided,rotation_deg,-0.7499298426086101,,
+core01_hcc,2_decomposition,comet_to_fixed,provided,tx_px,7990.587776746786,,
+core01_hcc,2_decomposition,comet_to_fixed,provided,ty_px,18470.07062457448,,
+core01_hcc,2_decomposition,comet_to_fixed,provided,det_sign,1.0,,
+core01_hcc,2_decomposition,comet_to_fixed,provided,non_similarity,3.734131247027981e-18,,
+core01_hcc,2_decomposition,comet_to_fixed,provided,tx_um,1697.9999025586922,um,
+core01_hcc,2_decomposition,comet_to_fixed,provided,ty_um,3924.890007722077,um,
+core01_hcc,2_decomposition,comet_to_fixed,provided,implied_pixel_size_um,0.27921876719639616,um,scale x 0.2125 um (target frame pixel)
+core01_hcc,2_decomposition,comet_to_fixed,provided,metadata_pixel_size_um,0.28,um,
+core01_hcc,2_decomposition,comet_to_fixed,provided,implied_vs_metadata_pct,-0.2790117155728078,%,
+core01_hcc,2_decomposition,comet_to_fixed,automatic,scale,1.313640016203101,,
+core01_hcc,2_decomposition,comet_to_fixed,automatic,rotation_deg,-0.7365872953689002,,
+core01_hcc,2_decomposition,comet_to_fixed,automatic,tx_px,7994.271190832188,,
+core01_hcc,2_decomposition,comet_to_fixed,automatic,ty_px,18471.004776088066,,
+core01_hcc,2_decomposition,comet_to_fixed,automatic,det_sign,1.0,,
+core01_hcc,2_decomposition,comet_to_fixed,automatic,non_similarity,0.0,,
+core01_hcc,2_decomposition,comet_to_fixed,automatic,tx_um,1698.78262805184,um,
+core01_hcc,2_decomposition,comet_to_fixed,automatic,ty_um,3925.088514918714,um,
+core01_hcc,2_decomposition,comet_to_fixed,automatic,implied_pixel_size_um,0.27914850344315895,um,scale x 0.2125 um (target frame pixel)
+core01_hcc,2_decomposition,comet_to_fixed,automatic,metadata_pixel_size_um,0.28,um,
+core01_hcc,2_decomposition,comet_to_fixed,automatic,implied_vs_metadata_pct,-0.30410591315752633,%,
+core01_hcc,2_decomposition,he_to_comet,provided,scale,0.7168720041325652,,
+core01_hcc,2_decomposition,he_to_comet,provided,rotation_deg,1.2963408533854337,,
+core01_hcc,2_decomposition,he_to_comet,provided,tx_px,70.76939881150793,,
+core01_hcc,2_decomposition,he_to_comet,provided,ty_px,-55.232333085463324,,
+core01_hcc,2_decomposition,he_to_comet,provided,det_sign,1.0,,
+core01_hcc,2_decomposition,he_to_comet,provided,non_similarity,0.0,,
+core01_hcc,2_decomposition,he_to_comet,provided,tx_um,19.81543166722222,um,
+core01_hcc,2_decomposition,he_to_comet,provided,ty_um,-15.465053263929732,um,
+core01_hcc,2_decomposition,he_to_comet,provided,implied_pixel_size_um,0.20072416115711827,um,scale x 0.28 um (target frame pixel)
+core01_hcc,2_decomposition,he_to_comet,provided,metadata_pixel_size_um,0.20312503808594465,um,
+core01_hcc,2_decomposition,he_to_comet,provided,implied_vs_metadata_pct,-1.1819699587258814,%,
+core01_hcc,2_decomposition,he_to_comet,automatic,scale,0.7168529850240896,,
+core01_hcc,2_decomposition,he_to_comet,automatic,rotation_deg,1.2997014809003673,,
+core01_hcc,2_decomposition,he_to_comet,automatic,tx_px,69.94818776129705,,
+core01_hcc,2_decomposition,he_to_comet,automatic,ty_px,-55.2992689421917,,
+core01_hcc,2_decomposition,he_to_comet,automatic,det_sign,1.0,,
+core01_hcc,2_decomposition,he_to_comet,automatic,non_similarity,1.5495018039016166e-16,,
+core01_hcc,2_decomposition,he_to_comet,automatic,tx_um,19.585492573163176,um,
+core01_hcc,2_decomposition,he_to_comet,automatic,ty_um,-15.483795303813679,um,
+core01_hcc,2_decomposition,he_to_comet,automatic,implied_pixel_size_um,0.2007188358067451,um,scale x 0.28 um (target frame pixel)
+core01_hcc,2_decomposition,he_to_comet,automatic,metadata_pixel_size_um,0.20312503808594465,um,
+core01_hcc,2_decomposition,he_to_comet,automatic,implied_vs_metadata_pct,-1.1845916691872627,%,
+core01_hcc,3_auto_vs_provided,comet_to_fixed,automatic_vs_provided,mean_um,0.5470894925128512,um,n_grid_points=12020
+core01_hcc,3_auto_vs_provided,comet_to_fixed,automatic_vs_provided,median_um,0.5491003538454737,um,n_grid_points=12020
+core01_hcc,3_auto_vs_provided,comet_to_fixed,automatic_vs_provided,max_um,0.7419496948179435,um,n_grid_points=12020
+core01_hcc,3_auto_vs_provided,he_to_fixed,automatic_vs_provided,mean_um,0.32111609330492796,um,n_grid_points=12685
+core01_hcc,3_auto_vs_provided,he_to_fixed,automatic_vs_provided,median_um,0.3274625621207443,um,n_grid_points=12685
+core01_hcc,3_auto_vs_provided,he_to_fixed,automatic_vs_provided,max_um,0.5341049082089193,um,n_grid_points=12685
+core01_hcc,3_auto_vs_provided,he_to_comet,automatic_vs_provided,mean_um,0.27973308210167175,um,n_grid_points=12685
+core01_hcc,3_auto_vs_provided,he_to_comet,automatic_vs_provided,median_um,0.27988861251185426,um,n_grid_points=12685
+core01_hcc,3_auto_vs_provided,he_to_comet,automatic_vs_provided,max_um,0.31699293874581674,um,n_grid_points=12685
+core01_hcc,4_nuclei,detection,he,n_nuclei_detected,9046,,
+core01_hcc,4_nuclei,detection,comet,n_nuclei_detected,6417,,
+core01_hcc,4_nuclei,he_to_comet,provided,n_moving_nuclei,9046,,
+core01_hcc,4_nuclei,he_to_comet,provided,n_target_nuclei,6417,,
+core01_hcc,4_nuclei,he_to_comet,provided,n_pairs_within_4um,5972,,
+core01_hcc,4_nuclei,he_to_comet,provided,fraction_matched_within_1um,0.45893719806763283,,of the smaller nuclei set (n=6417); 95% CI 0.4474 to 0.4717
+core01_hcc,4_nuclei,he_to_comet,provided,fraction_matched_within_1um_ci_lo,0.4474053295932679,,
+core01_hcc,4_nuclei,he_to_comet,provided,fraction_matched_within_1um_ci_hi,0.4717196509272245,,
+core01_hcc,4_nuclei,he_to_comet,provided,fraction_matched_within_2um,0.806139940782297,,of the smaller nuclei set (n=6417); 95% CI 0.7965 to 0.8160
+core01_hcc,4_nuclei,he_to_comet,provided,fraction_matched_within_2um_ci_lo,0.7964781050335048,,
+core01_hcc,4_nuclei,he_to_comet,provided,fraction_matched_within_2um_ci_hi,0.8159576125915536,,
+core01_hcc,4_nuclei,he_to_comet,provided,median_distance_um,1.0100798618853135,um,mutual pairs within 4 um; 95% CI 0.991 to 1.033
+core01_hcc,4_nuclei,he_to_comet,provided,median_distance_um_ci_lo,0.9914841975608963,um,
+core01_hcc,4_nuclei,he_to_comet,provided,median_distance_um_ci_hi,1.0329429489871678,um,
+core01_hcc,4_nuclei,he_to_comet,automatic,n_moving_nuclei,9046,,
+core01_hcc,4_nuclei,he_to_comet,automatic,n_target_nuclei,6417,,
+core01_hcc,4_nuclei,he_to_comet,automatic,n_pairs_within_4um,5972,,
+core01_hcc,4_nuclei,he_to_comet,automatic,fraction_matched_within_1um,0.4174848059841047,,of the smaller nuclei set (n=6417); 95% CI 0.4061 to 0.4295
+core01_hcc,4_nuclei,he_to_comet,automatic,fraction_matched_within_1um_ci_lo,0.4061048776686925,,
+core01_hcc,4_nuclei,he_to_comet,automatic,fraction_matched_within_1um_ci_hi,0.4294841826398629,,
+core01_hcc,4_nuclei,he_to_comet,automatic,fraction_matched_within_2um,0.7879071217079632,,of the smaller nuclei set (n=6417); 95% CI 0.7784 to 0.7973
+core01_hcc,4_nuclei,he_to_comet,automatic,fraction_matched_within_2um_ci_lo,0.7783972261181237,,
+core01_hcc,4_nuclei,he_to_comet,automatic,fraction_matched_within_2um_ci_hi,0.7972611812373384,,
+core01_hcc,4_nuclei,he_to_comet,automatic,median_distance_um,1.0898352328273635,um,mutual pairs within 4 um; 95% CI 1.058 to 1.112
+core01_hcc,4_nuclei,he_to_comet,automatic,median_distance_um_ci_lo,1.0584092516959374,um,
+core01_hcc,4_nuclei,he_to_comet,automatic,median_distance_um_ci_hi,1.1121507190873023,um,
+core01_hcc,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_1um_diff,-0.04145239208352813,,paired bootstrap 95% CI -0.0494 to -0.0343
+core01_hcc,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_1um_diff_ci_lo,-0.049400031167212095,,
+core01_hcc,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_1um_diff_ci_hi,-0.03428003740065453,,
+core01_hcc,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_2um_diff,-0.018232819074333828,,paired bootstrap 95% CI -0.0229 to -0.0136
+core01_hcc,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_2um_diff_ci_lo,-0.022907900888265546,,
+core01_hcc,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_2um_diff_ci_hi,-0.013557737260402058,,
+core01_hcc,4_nuclei,he_to_comet,automatic_vs_provided,verdict,worse,,"better/worse only if the paired 95% CI of the matched-fraction difference excludes 0 at 1 um or 2 um (and neither is opposite); equivalent = CI includes 0, i.e. not distinguishable"
+core01_hcc,4_nuclei,detection,xenium,n_nuclei_detected,8037,,nucleus_boundaries.parquet polygon vertex mean per cell
+core01_hcc,4_nuclei,comet_to_xenium,provided,n_moving_nuclei,6417,,
+core01_hcc,4_nuclei,comet_to_xenium,provided,n_target_nuclei,8037,,
+core01_hcc,4_nuclei,comet_to_xenium,provided,n_pairs_within_4um,5799,,
+core01_hcc,4_nuclei,comet_to_xenium,provided,fraction_matched_within_1um,0.3479819230169861,,of the smaller nuclei set (n=6417); 95% CI 0.3365 to 0.3601
+core01_hcc,4_nuclei,comet_to_xenium,provided,fraction_matched_within_1um_ci_lo,0.33645005454262117,,
+core01_hcc,4_nuclei,comet_to_xenium,provided,fraction_matched_within_1um_ci_hi,0.36013713573320866,,
+core01_hcc,4_nuclei,comet_to_xenium,provided,fraction_matched_within_2um,0.7106124357176251,,of the smaller nuclei set (n=6417); 95% CI 0.6997 to 0.7220
+core01_hcc,4_nuclei,comet_to_xenium,provided,fraction_matched_within_2um_ci_lo,0.6997039114851177,,
+core01_hcc,4_nuclei,comet_to_xenium,provided,fraction_matched_within_2um_ci_hi,0.7219923640330372,,
+core01_hcc,4_nuclei,comet_to_xenium,provided,median_distance_um,1.205597016089658,um,mutual pairs within 4 um; 95% CI 1.184 to 1.232
+core01_hcc,4_nuclei,comet_to_xenium,provided,median_distance_um_ci_lo,1.1840121309360034,um,
+core01_hcc,4_nuclei,comet_to_xenium,provided,median_distance_um_ci_hi,1.2323113087610182,um,
+core01_hcc,4_nuclei,comet_to_xenium,automatic,n_moving_nuclei,6417,,
+core01_hcc,4_nuclei,comet_to_xenium,automatic,n_target_nuclei,8037,,
+core01_hcc,4_nuclei,comet_to_xenium,automatic,n_pairs_within_4um,5792,,
+core01_hcc,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_1um,0.4321333956677575,,of the smaller nuclei set (n=6417); 95% CI 0.4194 to 0.4446
+core01_hcc,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_1um_ci_lo,0.41935483870967744,,
+core01_hcc,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_1um_ci_hi,0.44460028050490885,,
+core01_hcc,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_2um,0.7279102384291725,,of the smaller nuclei set (n=6417); 95% CI 0.7164 to 0.7393
+core01_hcc,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_2um_ci_lo,0.7163783699548075,,
+core01_hcc,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_2um_ci_hi,0.7392901667445847,,
+core01_hcc,4_nuclei,comet_to_xenium,automatic,median_distance_um,1.041385754555765,um,mutual pairs within 4 um; 95% CI 1.015 to 1.064
+core01_hcc,4_nuclei,comet_to_xenium,automatic,median_distance_um_ci_lo,1.0152111641885124,um,
+core01_hcc,4_nuclei,comet_to_xenium,automatic,median_distance_um_ci_hi,1.0637059447553545,um,
+core01_hcc,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_1um_diff,0.08415147265077139,,paired bootstrap 95% CI 0.0740 to 0.0944
+core01_hcc,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_1um_diff_ci_lo,0.07402212872058594,,
+core01_hcc,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_1um_diff_ci_hi,0.09443665264142123,,
+core01_hcc,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_2um_diff,0.01729780271154735,,paired bootstrap 95% CI 0.0114 to 0.0232
+core01_hcc,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_2um_diff_ci_lo,0.011376032413900576,,
+core01_hcc,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_2um_diff_ci_hi,0.023223468910705914,,
+core01_hcc,4_nuclei,comet_to_xenium,automatic_vs_provided,verdict,better,,"better/worse only if the paired 95% CI of the matched-fraction difference excludes 0 at 1 um or 2 um (and neither is opposite); equivalent = CI includes 0, i.e. not distinguishable"
+core02_non_tumour,1_keypoints,he,provided,n_keypoints,21,,
+core02_non_tumour,1_keypoints,he,provided_matrix,residual_mean,0.634286631604175,um,
+core02_non_tumour,1_keypoints,he,provided_matrix,residual_median,0.5051404404783403,um,
+core02_non_tumour,1_keypoints,he,provided_matrix,residual_rms,0.7537004375104867,um,
+core02_non_tumour,1_keypoints,he,provided_matrix,residual_max,2.135005431345557,um,
+core02_non_tumour,1_keypoints,he,provided_matrix,quadratic_surface_R2,0.17767941754947003,,6 terms per component
+core02_non_tumour,1_keypoints,he,provided_matrix,quadratic_surface_R2_adjusted,-0.09642744326737329,,
+core02_non_tumour,1_keypoints,he,provided_matrix,quadratic_surface_R2_perm_p,0.755,,2000 shuffles of residual vectors
+core02_non_tumour,1_keypoints,he,provided_matrix,quadratic_surface_R2_null_95pct,0.41318003902347905,,
+core02_non_tumour,1_keypoints,he,similarity_refit,residual_mean,0.6342869814404508,um,
+core02_non_tumour,1_keypoints,he,affine_refit,residual_mean,0.6286303017410091,um,
+core02_non_tumour,1_keypoints,he,similarity_refit,residual_median,0.5059430422101745,um,
+core02_non_tumour,1_keypoints,he,affine_refit,residual_median,0.5535690802426317,um,
+core02_non_tumour,1_keypoints,he,similarity_refit,residual_rms,0.7537001013704437,um,
+core02_non_tumour,1_keypoints,he,affine_refit,residual_rms,0.7341110434504368,um,
+core02_non_tumour,1_keypoints,he,similarity_refit,residual_max,2.1345277306597685,um,
+core02_non_tumour,1_keypoints,he,affine_refit,residual_max,2.014421469005939,um,
+core02_non_tumour,1_keypoints,he,affine_vs_similarity,rms_reduction_pct,2.5990520479416745,%,
+core02_non_tumour,1_keypoints,he,affine_vs_similarity,rms_reduction_expected_from_noise_pct,2.6671473215424846,%,expected if the 2 extra parameters only fit random error
+core02_non_tumour,1_keypoints,he,affine_refit,anisotropy_pct,0.08811942262501038,%,ratio of linear-part singular values minus 1
+core02_non_tumour,1_keypoints,he,affine_refit,scale_x_over_y_pct,0.08557999124001459,%,
+core02_non_tumour,1_keypoints,he,affine_refit,shear_deg,0.012025612412017495,deg,angle between fitted axes minus 90
+core02_non_tumour,1_keypoints,he,similarity_refit,scale,0.9417733174847652,,
+core02_non_tumour,1_keypoints,he,provided_matrix,scale,0.9417749975590657,,
+core02_non_tumour,1_keypoints,comet,provided,n_keypoints,22,,
+core02_non_tumour,1_keypoints,comet,provided_matrix,residual_mean,0.5507359581643922,um,
+core02_non_tumour,1_keypoints,comet,provided_matrix,residual_median,0.4598281408834148,um,
+core02_non_tumour,1_keypoints,comet,provided_matrix,residual_rms,0.661579572565109,um,
+core02_non_tumour,1_keypoints,comet,provided_matrix,residual_max,1.6585558402489626,um,
+core02_non_tumour,1_keypoints,comet,provided_matrix,quadratic_surface_R2,0.2532349469510625,,6 terms per component
+core02_non_tumour,1_keypoints,comet,provided_matrix,quadratic_surface_R2_adjusted,0.019870867873269527,,
+core02_non_tumour,1_keypoints,comet,provided_matrix,quadratic_surface_R2_perm_p,0.4115,,2000 shuffles of residual vectors
+core02_non_tumour,1_keypoints,comet,provided_matrix,quadratic_surface_R2_null_95pct,0.4035995587413891,,
+core02_non_tumour,1_keypoints,comet,similarity_refit,residual_mean,0.5507347055231081,um,
+core02_non_tumour,1_keypoints,comet,affine_refit,residual_mean,0.5163702796022253,um,
+core02_non_tumour,1_keypoints,comet,similarity_refit,residual_median,0.45959139937421034,um,
+core02_non_tumour,1_keypoints,comet,affine_refit,residual_median,0.447246714936035,um,
+core02_non_tumour,1_keypoints,comet,similarity_refit,residual_rms,0.6615793353459347,um,
+core02_non_tumour,1_keypoints,comet,affine_refit,residual_rms,0.6106481341446685,um,
+core02_non_tumour,1_keypoints,comet,similarity_refit,residual_max,1.6585392809251942,um,
+core02_non_tumour,1_keypoints,comet,affine_refit,residual_max,1.4422399159345818,um,
+core02_non_tumour,1_keypoints,comet,affine_vs_similarity,rms_reduction_pct,7.6984268522587325,%,
+core02_non_tumour,1_keypoints,comet,affine_vs_similarity,rms_reduction_expected_from_noise_pct,2.5320565519103666,%,expected if the 2 extra parameters only fit random error
+core02_non_tumour,1_keypoints,comet,affine_refit,anisotropy_pct,0.1332339574472874,%,ratio of linear-part singular values minus 1
+core02_non_tumour,1_keypoints,comet,affine_refit,scale_x_over_y_pct,0.11958166359948841,%,
+core02_non_tumour,1_keypoints,comet,affine_refit,shear_deg,0.033629110478614166,deg,angle between fitted axes minus 90
+core02_non_tumour,1_keypoints,comet,similarity_refit,scale,1.3133337316459768,,
+core02_non_tumour,1_keypoints,comet,provided_matrix,scale,1.3133356153101388,,
+core02_non_tumour,3_auto_vs_provided,comet_to_fixed,run1_vs_run2,max_abs_matrix_difference,0.0,,array_equal=True
+core02_non_tumour,3_auto_vs_provided,he_to_fixed,run1_vs_run2,max_abs_matrix_difference,0.0,,array_equal=True
+core02_non_tumour,3_auto_vs_provided,confidence,automatic,confidence,high,,
+core02_non_tumour,2_decomposition,he_to_fixed,provided,scale,0.9417749975590657,,
+core02_non_tumour,2_decomposition,he_to_fixed,provided,rotation_deg,0.5940303871296507,,
+core02_non_tumour,2_decomposition,he_to_fixed,provided,tx_px,14191.237040555605,,
+core02_non_tumour,2_decomposition,he_to_fixed,provided,ty_px,18467.842879347725,,
+core02_non_tumour,2_decomposition,he_to_fixed,provided,det_sign,1.0,,
+core02_non_tumour,2_decomposition,he_to_fixed,provided,non_similarity,1.6671630301857776e-16,,
+core02_non_tumour,2_decomposition,he_to_fixed,provided,tx_um,3015.637871118066,um,
+core02_non_tumour,2_decomposition,he_to_fixed,provided,ty_um,3924.4166118613916,um,
+core02_non_tumour,2_decomposition,he_to_fixed,provided,implied_pixel_size_um,0.20012718698130144,um,scale x 0.2125 um (target frame pixel)
+core02_non_tumour,2_decomposition,he_to_fixed,provided,metadata_pixel_size_um,0.20312503808594465,um,
+core02_non_tumour,2_decomposition,he_to_fixed,provided,implied_vs_metadata_pct,-1.4758648824842457,%,
+core02_non_tumour,2_decomposition,he_to_fixed,automatic,scale,0.9421679402804453,,
+core02_non_tumour,2_decomposition,he_to_fixed,automatic,rotation_deg,0.5760474373105169,,
+core02_non_tumour,2_decomposition,he_to_fixed,automatic,tx_px,14190.490349576803,,
+core02_non_tumour,2_decomposition,he_to_fixed,automatic,ty_px,18468.852327453937,,
+core02_non_tumour,2_decomposition,he_to_fixed,automatic,det_sign,1.0,,
+core02_non_tumour,2_decomposition,he_to_fixed,automatic,non_similarity,0.0,,
+core02_non_tumour,2_decomposition,he_to_fixed,automatic,tx_um,3015.4791992850705,um,
+core02_non_tumour,2_decomposition,he_to_fixed,automatic,ty_um,3924.631119583961,um,
+core02_non_tumour,2_decomposition,he_to_fixed,automatic,implied_pixel_size_um,0.20021068730959463,um,scale x 0.2125 um (target frame pixel)
+core02_non_tumour,2_decomposition,he_to_fixed,automatic,metadata_pixel_size_um,0.20312503808594465,um,
+core02_non_tumour,2_decomposition,he_to_fixed,automatic,implied_vs_metadata_pct,-1.4347570362630124,%,
+core02_non_tumour,2_decomposition,comet_to_fixed,provided,scale,1.3133356153101388,,
+core02_non_tumour,2_decomposition,comet_to_fixed,provided,rotation_deg,-0.7416257716213225,,
+core02_non_tumour,2_decomposition,comet_to_fixed,provided,tx_px,14090.45055543257,,
+core02_non_tumour,2_decomposition,comet_to_fixed,provided,ty_px,18484.009166498792,,
+core02_non_tumour,2_decomposition,comet_to_fixed,provided,det_sign,1.0,,
+core02_non_tumour,2_decomposition,comet_to_fixed,provided,non_similarity,0.0,,
+core02_non_tumour,2_decomposition,comet_to_fixed,provided,tx_um,2994.220743029421,um,
+core02_non_tumour,2_decomposition,comet_to_fixed,provided,ty_um,3927.851947880993,um,
+core02_non_tumour,2_decomposition,comet_to_fixed,provided,implied_pixel_size_um,0.2790838182534045,um,scale x 0.2125 um (target frame pixel)
+core02_non_tumour,2_decomposition,comet_to_fixed,provided,metadata_pixel_size_um,0.28,um,
+core02_non_tumour,2_decomposition,comet_to_fixed,provided,implied_vs_metadata_pct,-0.3272077666412576,%,
+core02_non_tumour,2_decomposition,comet_to_fixed,automatic,scale,1.3135677109513453,,
+core02_non_tumour,2_decomposition,comet_to_fixed,automatic,rotation_deg,-0.7378812235537981,,
+core02_non_tumour,2_decomposition,comet_to_fixed,automatic,tx_px,14092.102637276696,,
+core02_non_tumour,2_decomposition,comet_to_fixed,automatic,ty_px,18484.42756385814,,
+core02_non_tumour,2_decomposition,comet_to_fixed,automatic,det_sign,1.0,,
+core02_non_tumour,2_decomposition,comet_to_fixed,automatic,non_similarity,2.3905771215198997e-16,,
+core02_non_tumour,2_decomposition,comet_to_fixed,automatic,tx_um,2994.571810421298,um,
+core02_non_tumour,2_decomposition,comet_to_fixed,automatic,ty_um,3927.9408573198543,um,
+core02_non_tumour,2_decomposition,comet_to_fixed,automatic,implied_pixel_size_um,0.2791331385771609,um,scale x 0.2125 um (target frame pixel)
+core02_non_tumour,2_decomposition,comet_to_fixed,automatic,metadata_pixel_size_um,0.28,um,
+core02_non_tumour,2_decomposition,comet_to_fixed,automatic,implied_vs_metadata_pct,-0.3095933652996985,%,
+core02_non_tumour,2_decomposition,he_to_comet,provided,scale,0.7170863156228878,,
+core02_non_tumour,2_decomposition,he_to_comet,provided,rotation_deg,1.335656158750973,,
+core02_non_tumour,2_decomposition,he_to_comet,provided,tx_px,76.8937418562673,,
+core02_non_tumour,2_decomposition,he_to_comet,provided,ty_px,-11.315011858398066,,
+core02_non_tumour,2_decomposition,he_to_comet,provided,det_sign,1.0,,
+core02_non_tumour,2_decomposition,he_to_comet,provided,non_similarity,2.1895445840713534e-16,,
+core02_non_tumour,2_decomposition,he_to_comet,provided,tx_um,21.530247719754847,um,
+core02_non_tumour,2_decomposition,he_to_comet,provided,ty_um,-3.168203320351459,um,
+core02_non_tumour,2_decomposition,he_to_comet,provided,implied_pixel_size_um,0.2007841683744086,um,scale x 0.28 um (target frame pixel)
+core02_non_tumour,2_decomposition,he_to_comet,provided,metadata_pixel_size_um,0.20312503808594465,um,
+core02_non_tumour,2_decomposition,he_to_comet,provided,implied_vs_metadata_pct,-1.1524279495989997,%,
+core02_non_tumour,2_decomposition,he_to_comet,automatic,scale,0.7172587544787351,,
+core02_non_tumour,2_decomposition,he_to_comet,automatic,rotation_deg,1.313928660864315,,
+core02_non_tumour,2_decomposition,he_to_comet,automatic,tx_px,75.04762185182153,,
+core02_non_tumour,2_decomposition,he_to_comet,automatic,ty_px,-10.89163338030994,,
+core02_non_tumour,2_decomposition,he_to_comet,automatic,det_sign,1.0,,
+core02_non_tumour,2_decomposition,he_to_comet,automatic,non_similarity,2.1890181874807977e-16,,
+core02_non_tumour,2_decomposition,he_to_comet,automatic,tx_um,21.01333411851003,um,
+core02_non_tumour,2_decomposition,he_to_comet,automatic,ty_um,-3.0496573464867835,um,
+core02_non_tumour,2_decomposition,he_to_comet,automatic,implied_pixel_size_um,0.20083245125404584,um,scale x 0.28 um (target frame pixel)
+core02_non_tumour,2_decomposition,he_to_comet,automatic,metadata_pixel_size_um,0.20312503808594465,um,
+core02_non_tumour,2_decomposition,he_to_comet,automatic,implied_vs_metadata_pct,-1.1286579210037062,%,
+core02_non_tumour,3_auto_vs_provided,comet_to_fixed,automatic_vs_provided,mean_um,0.4767304871075454,um,n_grid_points=12173
+core02_non_tumour,3_auto_vs_provided,comet_to_fixed,automatic_vs_provided,median_um,0.4773554312333969,um,n_grid_points=12173
+core02_non_tumour,3_auto_vs_provided,comet_to_fixed,automatic_vs_provided,max_um,0.5836680027488468,um,n_grid_points=12173
+core02_non_tumour,3_auto_vs_provided,he_to_fixed,automatic_vs_provided,mean_um,0.4026485184164745,um,n_grid_points=12485
+core02_non_tumour,3_auto_vs_provided,he_to_fixed,automatic_vs_provided,median_um,0.41095309946857406,um,n_grid_points=12485
+core02_non_tumour,3_auto_vs_provided,he_to_fixed,automatic_vs_provided,max_um,0.6768292951063172,um,n_grid_points=12485
+core02_non_tumour,3_auto_vs_provided,he_to_comet,automatic_vs_provided,mean_um,0.22508944782509313,um,n_grid_points=12485
+core02_non_tumour,3_auto_vs_provided,he_to_comet,automatic_vs_provided,median_um,0.22670511211013325,um,n_grid_points=12485
+core02_non_tumour,3_auto_vs_provided,he_to_comet,automatic_vs_provided,max_um,0.42426659957414214,um,n_grid_points=12485
+core02_non_tumour,4_nuclei,detection,he,n_nuclei_detected,6384,,
+core02_non_tumour,4_nuclei,detection,comet,n_nuclei_detected,4520,,
+core02_non_tumour,4_nuclei,he_to_comet,provided,n_moving_nuclei,6384,,
+core02_non_tumour,4_nuclei,he_to_comet,provided,n_target_nuclei,4520,,
+core02_non_tumour,4_nuclei,he_to_comet,provided,n_pairs_within_4um,4305,,
+core02_non_tumour,4_nuclei,he_to_comet,provided,fraction_matched_within_1um,0.5805309734513274,,of the smaller nuclei set (n=4520); 95% CI 0.5659 to 0.5942
+core02_non_tumour,4_nuclei,he_to_comet,provided,fraction_matched_within_1um_ci_lo,0.5659236725663717,,
+core02_non_tumour,4_nuclei,he_to_comet,provided,fraction_matched_within_1um_ci_hi,0.5942477876106195,,
+core02_non_tumour,4_nuclei,he_to_comet,provided,fraction_matched_within_2um,0.8851769911504425,,of the smaller nuclei set (n=4520); 95% CI 0.8759 to 0.8949
+core02_non_tumour,4_nuclei,he_to_comet,provided,fraction_matched_within_2um_ci_lo,0.8758849557522124,,
+core02_non_tumour,4_nuclei,he_to_comet,provided,fraction_matched_within_2um_ci_hi,0.8949115044247787,,
+core02_non_tumour,4_nuclei,he_to_comet,provided,median_distance_um,0.8574259118050565,um,mutual pairs within 4 um; 95% CI 0.835 to 0.878
+core02_non_tumour,4_nuclei,he_to_comet,provided,median_distance_um_ci_lo,0.835101712202075,um,
+core02_non_tumour,4_nuclei,he_to_comet,provided,median_distance_um_ci_hi,0.877835512448242,um,
+core02_non_tumour,4_nuclei,he_to_comet,automatic,n_moving_nuclei,6384,,
+core02_non_tumour,4_nuclei,he_to_comet,automatic,n_target_nuclei,4520,,
+core02_non_tumour,4_nuclei,he_to_comet,automatic,n_pairs_within_4um,4307,,
+core02_non_tumour,4_nuclei,he_to_comet,automatic,fraction_matched_within_1um,0.5971238938053097,,of the smaller nuclei set (n=4520); 95% CI 0.5827 to 0.6111
+core02_non_tumour,4_nuclei,he_to_comet,automatic,fraction_matched_within_1um_ci_lo,0.5827433628318585,,
+core02_non_tumour,4_nuclei,he_to_comet,automatic,fraction_matched_within_1um_ci_hi,0.6110674778761063,,
+core02_non_tumour,4_nuclei,he_to_comet,automatic,fraction_matched_within_2um,0.886504424778761,,of the smaller nuclei set (n=4520); 95% CI 0.8774 to 0.8951
+core02_non_tumour,4_nuclei,he_to_comet,automatic,fraction_matched_within_2um_ci_lo,0.8774280973451327,,
+core02_non_tumour,4_nuclei,he_to_comet,automatic,fraction_matched_within_2um_ci_hi,0.8951327433628319,,
+core02_non_tumour,4_nuclei,he_to_comet,automatic,median_distance_um,0.8321653394570445,um,mutual pairs within 4 um; 95% CI 0.810 to 0.851
+core02_non_tumour,4_nuclei,he_to_comet,automatic,median_distance_um_ci_lo,0.8098038529630037,um,
+core02_non_tumour,4_nuclei,he_to_comet,automatic,median_distance_um_ci_hi,0.8506107717649135,um,
+core02_non_tumour,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_1um_diff,0.0165929203539823,,paired bootstrap 95% CI 0.0080 to 0.0257
+core02_non_tumour,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_1um_diff_ci_lo,0.007959070796460178,,
+core02_non_tumour,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_1um_diff_ci_hi,0.02566371681415929,,
+core02_non_tumour,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_2um_diff,0.0013274336283185528,,paired bootstrap 95% CI -0.0022 to 0.0051
+core02_non_tumour,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_2um_diff_ci_lo,-0.0022123893805309734,,
+core02_non_tumour,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_2um_diff_ci_hi,0.005088495575221239,,
+core02_non_tumour,4_nuclei,he_to_comet,automatic_vs_provided,verdict,better,,"better/worse only if the paired 95% CI of the matched-fraction difference excludes 0 at 1 um or 2 um (and neither is opposite); equivalent = CI includes 0, i.e. not distinguishable"
+core02_non_tumour,4_nuclei,detection,xenium,n_nuclei_detected,4922,,nucleus_boundaries.parquet polygon vertex mean per cell
+core02_non_tumour,4_nuclei,comet_to_xenium,provided,n_moving_nuclei,4520,,
+core02_non_tumour,4_nuclei,comet_to_xenium,provided,n_target_nuclei,4922,,
+core02_non_tumour,4_nuclei,comet_to_xenium,provided,n_pairs_within_4um,4193,,
+core02_non_tumour,4_nuclei,comet_to_xenium,provided,fraction_matched_within_1um,0.5126106194690265,,of the smaller nuclei set (n=4520); 95% CI 0.4987 to 0.5270
+core02_non_tumour,4_nuclei,comet_to_xenium,provided,fraction_matched_within_1um_ci_lo,0.49866703539823004,,
+core02_non_tumour,4_nuclei,comet_to_xenium,provided,fraction_matched_within_1um_ci_hi,0.5269911504424779,,
+core02_non_tumour,4_nuclei,comet_to_xenium,provided,fraction_matched_within_2um,0.834070796460177,,of the smaller nuclei set (n=4520); 95% CI 0.8239 to 0.8447
+core02_non_tumour,4_nuclei,comet_to_xenium,provided,fraction_matched_within_2um_ci_lo,0.8238938053097346,,
+core02_non_tumour,4_nuclei,comet_to_xenium,provided,fraction_matched_within_2um_ci_hi,0.8446902654867257,,
+core02_non_tumour,4_nuclei,comet_to_xenium,provided,median_distance_um,0.9256129542218737,um,mutual pairs within 4 um; 95% CI 0.904 to 0.945
+core02_non_tumour,4_nuclei,comet_to_xenium,provided,median_distance_um_ci_lo,0.9036644010209687,um,
+core02_non_tumour,4_nuclei,comet_to_xenium,provided,median_distance_um_ci_hi,0.9449957516158398,um,
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic,n_moving_nuclei,4520,,
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic,n_target_nuclei,4922,,
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic,n_pairs_within_4um,4193,,
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_1um,0.5986725663716814,,of the smaller nuclei set (n=4520); 95% CI 0.5843 to 0.6128
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_1um_ci_lo,0.5842865044247787,,
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_1um_ci_hi,0.6128318584070797,,
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_2um,0.845575221238938,,of the smaller nuclei set (n=4520); 95% CI 0.8352 to 0.8562
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_2um_ci_lo,0.8351769911504425,,
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_2um_ci_hi,0.8561946902654868,,
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic,median_distance_um,0.8027718476573914,um,mutual pairs within 4 um; 95% CI 0.784 to 0.823
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic,median_distance_um_ci_lo,0.7843478170096609,um,
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic,median_distance_um_ci_hi,0.8232645454982946,um,
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_1um_diff,0.0860619469026549,,paired bootstrap 95% CI 0.0737 to 0.0985
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_1um_diff_ci_lo,0.07367256637168142,,
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_1um_diff_ci_hi,0.09845132743362832,,
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_2um_diff,0.011504424778761013,,paired bootstrap 95% CI 0.0062 to 0.0170
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_2um_diff_ci_lo,0.006194690265486726,,
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_2um_diff_ci_hi,0.017035398230088497,,
+core02_non_tumour,4_nuclei,comet_to_xenium,automatic_vs_provided,verdict,better,,"better/worse only if the paired 95% CI of the matched-fraction difference excludes 0 at 1 um or 2 um (and neither is opposite); equivalent = CI includes 0, i.e. not distinguishable"
+core03_tonsil,1_keypoints,he,provided,n_keypoints,30,,
+core03_tonsil,1_keypoints,he,provided_matrix,residual_mean,0.9915006127211197,um,
+core03_tonsil,1_keypoints,he,provided_matrix,residual_median,0.7423604634502764,um,
+core03_tonsil,1_keypoints,he,provided_matrix,residual_rms,1.3972385977828683,um,
+core03_tonsil,1_keypoints,he,provided_matrix,residual_max,5.054779340498875,um,
+core03_tonsil,1_keypoints,he,provided_matrix,quadratic_surface_R2,0.18801820734181518,,6 terms per component
+core03_tonsil,1_keypoints,he,provided_matrix,quadratic_surface_R2_adjusted,0.01885533387136007,,
+core03_tonsil,1_keypoints,he,provided_matrix,quadratic_surface_R2_perm_p,0.386,,2000 shuffles of residual vectors
+core03_tonsil,1_keypoints,he,provided_matrix,quadratic_surface_R2_null_95pct,0.29253199146582765,,
+core03_tonsil,1_keypoints,he,similarity_refit,residual_mean,0.9913022789037931,um,
+core03_tonsil,1_keypoints,he,affine_refit,residual_mean,0.9885611781150454,um,
+core03_tonsil,1_keypoints,he,similarity_refit,residual_median,0.7406186318167203,um,
+core03_tonsil,1_keypoints,he,affine_refit,residual_median,0.732171128117107,um,
+core03_tonsil,1_keypoints,he,similarity_refit,residual_rms,1.3972371077432055,um,
+core03_tonsil,1_keypoints,he,affine_refit,residual_rms,1.3903118198324336,um,
+core03_tonsil,1_keypoints,he,similarity_refit,residual_max,5.054295071323536,um,
+core03_tonsil,1_keypoints,he,affine_refit,residual_max,5.0313361385579585,um,
+core03_tonsil,1_keypoints,he,affine_vs_similarity,rms_reduction_pct,0.49564156809129845,%,
+core03_tonsil,1_keypoints,he,affine_vs_similarity,rms_reduction_expected_from_noise_pct,1.801949393803426,%,expected if the 2 extra parameters only fit random error
+core03_tonsil,1_keypoints,he,affine_refit,anisotropy_pct,0.05832184677960761,%,ratio of linear-part singular values minus 1
+core03_tonsil,1_keypoints,he,affine_refit,scale_x_over_y_pct,-0.010527134854587672,%,
+core03_tonsil,1_keypoints,he,affine_refit,shear_deg,-0.03285713129184842,deg,angle between fitted axes minus 90
+core03_tonsil,1_keypoints,he,similarity_refit,scale,0.942612049672692,,
+core03_tonsil,1_keypoints,he,provided_matrix,scale,0.9426160705594904,,
+core03_tonsil,1_keypoints,comet,provided,n_keypoints,30,,
+core03_tonsil,1_keypoints,comet,provided_matrix,residual_mean,0.43259125501333323,um,
+core03_tonsil,1_keypoints,comet,provided_matrix,residual_median,0.2588521397873892,um,
+core03_tonsil,1_keypoints,comet,provided_matrix,residual_rms,0.587479381605439,um,
+core03_tonsil,1_keypoints,comet,provided_matrix,residual_max,1.840665712646409,um,
+core03_tonsil,1_keypoints,comet,provided_matrix,quadratic_surface_R2,0.1083211610461452,,6 terms per component
+core03_tonsil,1_keypoints,comet,provided_matrix,quadratic_surface_R2_adjusted,-0.07744526373590799,,
+core03_tonsil,1_keypoints,comet,provided_matrix,quadratic_surface_R2_perm_p,0.773,,2000 shuffles of residual vectors
+core03_tonsil,1_keypoints,comet,provided_matrix,quadratic_surface_R2_null_95pct,0.30773575841536466,,
+core03_tonsil,1_keypoints,comet,similarity_refit,residual_mean,0.4325736195042032,um,
+core03_tonsil,1_keypoints,comet,affine_refit,residual_mean,0.43170226563627045,um,
+core03_tonsil,1_keypoints,comet,similarity_refit,residual_median,0.2586440842244748,um,
+core03_tonsil,1_keypoints,comet,affine_refit,residual_median,0.2794374080917905,um,
+core03_tonsil,1_keypoints,comet,similarity_refit,residual_rms,0.5874792395798479,um,
+core03_tonsil,1_keypoints,comet,affine_refit,residual_rms,0.5668944913275423,um,
+core03_tonsil,1_keypoints,comet,similarity_refit,residual_max,1.840928904874108,um,
+core03_tonsil,1_keypoints,comet,affine_refit,residual_max,1.7634525741105647,um,
+core03_tonsil,1_keypoints,comet,affine_vs_similarity,rms_reduction_pct,3.5039107538552994,%,
+core03_tonsil,1_keypoints,comet,affine_vs_similarity,rms_reduction_expected_from_noise_pct,1.801949393803426,%,expected if the 2 extra parameters only fit random error
+core03_tonsil,1_keypoints,comet,affine_refit,anisotropy_pct,0.07403862830572816,%,ratio of linear-part singular values minus 1
+core03_tonsil,1_keypoints,comet,affine_refit,scale_x_over_y_pct,-0.026640466369765026,%,
+core03_tonsil,1_keypoints,comet,affine_refit,shear_deg,-0.039562137103885675,deg,angle between fitted axes minus 90
+core03_tonsil,1_keypoints,comet,similarity_refit,scale,1.313783273847703,,
+core03_tonsil,1_keypoints,comet,provided_matrix,scale,1.3137845442990974,,
+core03_tonsil,3_auto_vs_provided,comet_to_fixed,run1_vs_run2,max_abs_matrix_difference,0.0,,array_equal=True
+core03_tonsil,3_auto_vs_provided,he_to_fixed,run1_vs_run2,max_abs_matrix_difference,0.0,,array_equal=True
+core03_tonsil,3_auto_vs_provided,confidence,automatic,confidence,high,,
+core03_tonsil,2_decomposition,he_to_fixed,provided,scale,0.9426160705594904,,
+core03_tonsil,2_decomposition,he_to_fixed,provided,rotation_deg,0.5633595657400975,,
+core03_tonsil,2_decomposition,he_to_fixed,provided,tx_px,1737.2668368040345,,
+core03_tonsil,2_decomposition,he_to_fixed,provided,ty_px,792.0062158003075,,
+core03_tonsil,2_decomposition,he_to_fixed,provided,det_sign,1.0,,
+core03_tonsil,2_decomposition,he_to_fixed,provided,non_similarity,1.6658787789732298e-16,,
+core03_tonsil,2_decomposition,he_to_fixed,provided,tx_um,369.1692028208573,um,
+core03_tonsil,2_decomposition,he_to_fixed,provided,ty_um,168.30132085756534,um,
+core03_tonsil,2_decomposition,he_to_fixed,provided,implied_pixel_size_um,0.2003059149938917,um,scale x 0.2125 um (target frame pixel)
+core03_tonsil,2_decomposition,he_to_fixed,provided,metadata_pixel_size_um,0.20312503808594465,um,
+core03_tonsil,2_decomposition,he_to_fixed,provided,implied_vs_metadata_pct,-1.387875723553167,%,
+core03_tonsil,2_decomposition,he_to_fixed,automatic,scale,0.9417159185915939,,
+core03_tonsil,2_decomposition,he_to_fixed,automatic,rotation_deg,0.5245583324352046,,
+core03_tonsil,2_decomposition,he_to_fixed,automatic,tx_px,1738.2352421234448,,
+core03_tonsil,2_decomposition,he_to_fixed,automatic,ty_px,796.0012298739554,,
+core03_tonsil,2_decomposition,he_to_fixed,automatic,det_sign,1.0,,
+core03_tonsil,2_decomposition,he_to_fixed,automatic,non_similarity,2.637018120748654e-16,,
+core03_tonsil,2_decomposition,he_to_fixed,automatic,tx_um,369.374988951232,um,
+core03_tonsil,2_decomposition,he_to_fixed,automatic,ty_um,169.1502613482155,um,
+core03_tonsil,2_decomposition,he_to_fixed,automatic,implied_pixel_size_um,0.2001146327007137,um,scale x 0.2125 um (target frame pixel)
+core03_tonsil,2_decomposition,he_to_fixed,automatic,metadata_pixel_size_um,0.20312503808594465,um,
+core03_tonsil,2_decomposition,he_to_fixed,automatic,implied_vs_metadata_pct,-1.4820454502301295,%,
+core03_tonsil,2_decomposition,comet_to_fixed,provided,scale,1.3137845442990974,,
+core03_tonsil,2_decomposition,comet_to_fixed,provided,rotation_deg,-0.7263541594879829,,
+core03_tonsil,2_decomposition,comet_to_fixed,provided,tx_px,1623.4630741971764,,
+core03_tonsil,2_decomposition,comet_to_fixed,provided,ty_px,791.7676590097867,,
+core03_tonsil,2_decomposition,comet_to_fixed,provided,det_sign,1.0,,
+core03_tonsil,2_decomposition,comet_to_fixed,provided,non_similarity,0.0,,
+core03_tonsil,2_decomposition,comet_to_fixed,provided,tx_um,344.9859032669,um,
+core03_tonsil,2_decomposition,comet_to_fixed,provided,ty_um,168.25062753957968,um,
+core03_tonsil,2_decomposition,comet_to_fixed,provided,implied_pixel_size_um,0.2791792156635582,um,scale x 0.2125 um (target frame pixel)
+core03_tonsil,2_decomposition,comet_to_fixed,provided,metadata_pixel_size_um,0.28,um,
+core03_tonsil,2_decomposition,comet_to_fixed,provided,implied_vs_metadata_pct,-0.29313726301494203,%,
+core03_tonsil,2_decomposition,comet_to_fixed,automatic,scale,1.3138476156437304,,
+core03_tonsil,2_decomposition,comet_to_fixed,automatic,rotation_deg,-0.7734492469865176,,
+core03_tonsil,2_decomposition,comet_to_fixed,automatic,tx_px,1620.668512747776,,
+core03_tonsil,2_decomposition,comet_to_fixed,automatic,ty_px,794.594796678009,,
+core03_tonsil,2_decomposition,comet_to_fixed,automatic,det_sign,1.0,,
+core03_tonsil,2_decomposition,comet_to_fixed,automatic,non_similarity,3.3802726342784143e-16,,
+core03_tonsil,2_decomposition,comet_to_fixed,automatic,tx_um,344.3920589589024,um,
+core03_tonsil,2_decomposition,comet_to_fixed,automatic,ty_um,168.8513942940769,um,
+core03_tonsil,2_decomposition,comet_to_fixed,automatic,implied_pixel_size_um,0.2791926183242927,um,scale x 0.2125 um (target frame pixel)
+core03_tonsil,2_decomposition,comet_to_fixed,automatic,metadata_pixel_size_um,0.28,um,
+core03_tonsil,2_decomposition,comet_to_fixed,automatic,implied_vs_metadata_pct,-0.28835059846690214,%,
+core03_tonsil,2_decomposition,he_to_comet,provided,scale,0.7174814733890593,,
+core03_tonsil,2_decomposition,he_to_comet,provided,rotation_deg,1.2897137252280804,,
+core03_tonsil,2_decomposition,he_to_comet,provided,tx_px,86.61358833193799,,
+core03_tonsil,2_decomposition,he_to_comet,provided,ty_px,1.2796772457830912,,
+core03_tonsil,2_decomposition,he_to_comet,provided,det_sign,1.0,,
+core03_tonsil,2_decomposition,he_to_comet,provided,non_similarity,2.1883386776070546e-16,,
+core03_tonsil,2_decomposition,he_to_comet,provided,tx_um,24.251804732942638,um,
+core03_tonsil,2_decomposition,he_to_comet,provided,ty_um,0.35830962881926554,um,
+core03_tonsil,2_decomposition,he_to_comet,provided,implied_pixel_size_um,0.20089481254893662,um,scale x 0.28 um (target frame pixel)
+core03_tonsil,2_decomposition,he_to_comet,provided,metadata_pixel_size_um,0.20312503808594465,um,
+core03_tonsil,2_decomposition,he_to_comet,provided,implied_vs_metadata_pct,-1.0979569815831258,%,
+core03_tonsil,2_decomposition,he_to_comet,automatic,scale,0.7167619040281109,,
+core03_tonsil,2_decomposition,he_to_comet,automatic,rotation_deg,1.2980075794217225,,
+core03_tonsil,2_decomposition,he_to_comet,automatic,tx_px,89.46017094090894,,
+core03_tonsil,2_decomposition,he_to_comet,automatic,ty_px,2.27828390064667,,
+core03_tonsil,2_decomposition,he_to_comet,automatic,det_sign,1.0,,
+core03_tonsil,2_decomposition,he_to_comet,automatic,non_similarity,1.5527195615904826e-16,,
+core03_tonsil,2_decomposition,he_to_comet,automatic,tx_um,25.048847863454505,um,
+core03_tonsil,2_decomposition,he_to_comet,automatic,ty_um,0.6379194921810677,um,
+core03_tonsil,2_decomposition,he_to_comet,automatic,implied_pixel_size_um,0.20069333312787108,um,scale x 0.28 um (target frame pixel)
+core03_tonsil,2_decomposition,he_to_comet,automatic,metadata_pixel_size_um,0.20312503808594465,um,
+core03_tonsil,2_decomposition,he_to_comet,automatic,implied_vs_metadata_pct,-1.1971468318172973,%,
+core03_tonsil,3_auto_vs_provided,comet_to_fixed,automatic_vs_provided,mean_um,0.3515726764406216,um,n_grid_points=14653
+core03_tonsil,3_auto_vs_provided,comet_to_fixed,automatic_vs_provided,median_um,0.35512421697403884,um,n_grid_points=14653
+core03_tonsil,3_auto_vs_provided,comet_to_fixed,automatic_vs_provided,max_um,0.6439637645127033,um,n_grid_points=14653
+core03_tonsil,3_auto_vs_provided,he_to_fixed,automatic_vs_provided,mean_um,0.47923839156857845,um,n_grid_points=13461
+core03_tonsil,3_auto_vs_provided,he_to_fixed,automatic_vs_provided,median_um,0.47873607836802445,um,n_grid_points=13461
+core03_tonsil,3_auto_vs_provided,he_to_fixed,automatic_vs_provided,max_um,0.8688840210845269,um,n_grid_points=13461
+core03_tonsil,3_auto_vs_provided,he_to_comet,automatic_vs_provided,mean_um,0.4610672809047876,um,n_grid_points=13461
+core03_tonsil,3_auto_vs_provided,he_to_comet,automatic_vs_provided,median_um,0.45409413699777923,um,n_grid_points=13461
+core03_tonsil,3_auto_vs_provided,he_to_comet,automatic_vs_provided,max_um,0.9051788606019051,um,n_grid_points=13461
+core03_tonsil,4_nuclei,detection,he,n_nuclei_detected,15902,,
+core03_tonsil,4_nuclei,detection,comet,n_nuclei_detected,13075,,
+core03_tonsil,4_nuclei,he_to_comet,provided,n_moving_nuclei,15902,,
+core03_tonsil,4_nuclei,he_to_comet,provided,n_target_nuclei,13075,,
+core03_tonsil,4_nuclei,he_to_comet,provided,n_pairs_within_4um,12394,,
+core03_tonsil,4_nuclei,he_to_comet,provided,fraction_matched_within_1um,0.48038240917782027,,of the smaller nuclei set (n=13075); 95% CI 0.4722 to 0.4893
+core03_tonsil,4_nuclei,he_to_comet,provided,fraction_matched_within_1um_ci_lo,0.4721969407265774,,
+core03_tonsil,4_nuclei,he_to_comet,provided,fraction_matched_within_1um_ci_hi,0.48933269598470364,,
+core03_tonsil,4_nuclei,he_to_comet,provided,fraction_matched_within_2um,0.8482600382409178,,of the smaller nuclei set (n=13075); 95% CI 0.8421 to 0.8544
+core03_tonsil,4_nuclei,he_to_comet,provided,fraction_matched_within_2um_ci_lo,0.8421395793499045,,
+core03_tonsil,4_nuclei,he_to_comet,provided,fraction_matched_within_2um_ci_hi,0.8543804971319311,,
+core03_tonsil,4_nuclei,he_to_comet,provided,median_distance_um,0.9889909809855013,um,mutual pairs within 4 um; 95% CI 0.977 to 1.004
+core03_tonsil,4_nuclei,he_to_comet,provided,median_distance_um_ci_lo,0.9765477497092707,um,
+core03_tonsil,4_nuclei,he_to_comet,provided,median_distance_um_ci_hi,1.0036201746253763,um,
+core03_tonsil,4_nuclei,he_to_comet,automatic,n_moving_nuclei,15902,,
+core03_tonsil,4_nuclei,he_to_comet,automatic,n_target_nuclei,13075,,
+core03_tonsil,4_nuclei,he_to_comet,automatic,n_pairs_within_4um,12382,,
+core03_tonsil,4_nuclei,he_to_comet,automatic,fraction_matched_within_1um,0.5519694072657744,,of the smaller nuclei set (n=13075); 95% CI 0.5431 to 0.5603
+core03_tonsil,4_nuclei,he_to_comet,automatic,fraction_matched_within_1um_ci_lo,0.5430975143403441,,
+core03_tonsil,4_nuclei,he_to_comet,automatic,fraction_matched_within_1um_ci_hi,0.5603059273422563,,
+core03_tonsil,4_nuclei,he_to_comet,automatic,fraction_matched_within_2um,0.8592734225621415,,of the smaller nuclei set (n=13075); 95% CI 0.8534 to 0.8653
+core03_tonsil,4_nuclei,he_to_comet,automatic,fraction_matched_within_2um_ci_lo,0.8533824091778203,,
+core03_tonsil,4_nuclei,he_to_comet,automatic,fraction_matched_within_2um_ci_hi,0.8653154875717017,,
+core03_tonsil,4_nuclei,he_to_comet,automatic,median_distance_um,0.8810904232670576,um,mutual pairs within 4 um; 95% CI 0.870 to 0.895
+core03_tonsil,4_nuclei,he_to_comet,automatic,median_distance_um_ci_lo,0.869508685343249,um,
+core03_tonsil,4_nuclei,he_to_comet,automatic,median_distance_um_ci_hi,0.8947353791178748,um,
+core03_tonsil,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_1um_diff,0.0715869980879541,,paired bootstrap 95% CI 0.0641 to 0.0792
+core03_tonsil,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_1um_diff_ci_lo,0.06409177820267686,,
+core03_tonsil,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_1um_diff_ci_hi,0.0791586998087954,,
+core03_tonsil,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_2um_diff,0.011013384321223674,,paired bootstrap 95% CI 0.0075 to 0.0144
+core03_tonsil,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_2um_diff_ci_lo,0.0074952198852772465,,
+core03_tonsil,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_2um_diff_ci_hi,0.014378585086042065,,
+core03_tonsil,4_nuclei,he_to_comet,automatic_vs_provided,verdict,better,,"better/worse only if the paired 95% CI of the matched-fraction difference excludes 0 at 1 um or 2 um (and neither is opposite); equivalent = CI includes 0, i.e. not distinguishable"
+core03_tonsil,4_nuclei,detection,xenium,n_nuclei_detected,25001,,nucleus_boundaries.parquet polygon vertex mean per cell
+core03_tonsil,4_nuclei,comet_to_xenium,provided,n_moving_nuclei,13075,,
+core03_tonsil,4_nuclei,comet_to_xenium,provided,n_target_nuclei,25001,,
+core03_tonsil,4_nuclei,comet_to_xenium,provided,n_pairs_within_4um,12681,,
+core03_tonsil,4_nuclei,comet_to_xenium,provided,fraction_matched_within_1um,0.3707074569789675,,of the smaller nuclei set (n=13075); 95% CI 0.3626 to 0.3787
+core03_tonsil,4_nuclei,comet_to_xenium,provided,fraction_matched_within_1um_ci_lo,0.3626003824091778,,
+core03_tonsil,4_nuclei,comet_to_xenium,provided,fraction_matched_within_1um_ci_hi,0.3786634799235182,,
+core03_tonsil,4_nuclei,comet_to_xenium,provided,fraction_matched_within_2um,0.7630592734225622,,of the smaller nuclei set (n=13075); 95% CI 0.7561 to 0.7701
+core03_tonsil,4_nuclei,comet_to_xenium,provided,fraction_matched_within_2um_ci_lo,0.7560975143403442,,
+core03_tonsil,4_nuclei,comet_to_xenium,provided,fraction_matched_within_2um_ci_hi,0.7700956022944551,,
+core03_tonsil,4_nuclei,comet_to_xenium,provided,median_distance_um,1.2314413946654637,um,mutual pairs within 4 um; 95% CI 1.214 to 1.252
+core03_tonsil,4_nuclei,comet_to_xenium,provided,median_distance_um_ci_lo,1.2135455120533094,um,
+core03_tonsil,4_nuclei,comet_to_xenium,provided,median_distance_um_ci_hi,1.2520458514243835,um,
+core03_tonsil,4_nuclei,comet_to_xenium,automatic,n_moving_nuclei,13075,,
+core03_tonsil,4_nuclei,comet_to_xenium,automatic,n_target_nuclei,25001,,
+core03_tonsil,4_nuclei,comet_to_xenium,automatic,n_pairs_within_4um,12685,,
+core03_tonsil,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_1um,0.35288718929254304,,of the smaller nuclei set (n=13075); 95% CI 0.3447 to 0.3612
+core03_tonsil,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_1um_ci_lo,0.3447036328871893,,
+core03_tonsil,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_1um_ci_hi,0.36122753346080305,,
+core03_tonsil,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_2um,0.7590822179732314,,of the smaller nuclei set (n=13075); 95% CI 0.7517 to 0.7663
+core03_tonsil,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_2um_ci_lo,0.7517399617590822,,
+core03_tonsil,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_2um_ci_hi,0.7662734225621415,,
+core03_tonsil,4_nuclei,comet_to_xenium,automatic,median_distance_um,1.2669649549695376,um,mutual pairs within 4 um; 95% CI 1.248 to 1.288
+core03_tonsil,4_nuclei,comet_to_xenium,automatic,median_distance_um_ci_lo,1.2482501733599138,um,
+core03_tonsil,4_nuclei,comet_to_xenium,automatic,median_distance_um_ci_hi,1.2876590261855756,um,
+core03_tonsil,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_1um_diff,-0.017820267686424474,,paired bootstrap 95% CI -0.0239 to -0.0116
+core03_tonsil,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_1um_diff_ci_lo,-0.023938814531548756,,
+core03_tonsil,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_1um_diff_ci_hi,-0.011625239005736138,,
+core03_tonsil,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_2um_diff,-0.003977055449330802,,paired bootstrap 95% CI -0.0082 to 0.0002
+core03_tonsil,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_2um_diff_ci_lo,-0.008185468451242829,,
+core03_tonsil,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_2um_diff_ci_hi,0.00015296367112810707,,
+core03_tonsil,4_nuclei,comet_to_xenium,automatic_vs_provided,verdict,worse,,"better/worse only if the paired 95% CI of the matched-fraction difference excludes 0 at 1 um or 2 um (and neither is opposite); equivalent = CI includes 0, i.e. not distinguishable"
+core04_hca,1_keypoints,he,provided,n_keypoints,40,,
+core04_hca,1_keypoints,he,provided_matrix,residual_mean,1.1199603055157223,um,
+core04_hca,1_keypoints,he,provided_matrix,residual_median,0.774418085144658,um,
+core04_hca,1_keypoints,he,provided_matrix,residual_rms,1.611881606069063,um,
+core04_hca,1_keypoints,he,provided_matrix,residual_max,6.665486774405827,um,
+core04_hca,1_keypoints,he,provided_matrix,quadratic_surface_R2,0.06264148178890738,,6 terms per component
+core04_hca,1_keypoints,he,provided_matrix,quadratic_surface_R2_adjusted,-0.07520535912448856,,
+core04_hca,1_keypoints,he,provided_matrix,quadratic_surface_R2_perm_p,0.881,,2000 shuffles of residual vectors
+core04_hca,1_keypoints,he,provided_matrix,quadratic_surface_R2_null_95pct,0.2473742082435195,,
+core04_hca,1_keypoints,he,similarity_refit,residual_mean,1.1200763807058016,um,
+core04_hca,1_keypoints,he,affine_refit,residual_mean,1.1157097907949491,um,
+core04_hca,1_keypoints,he,similarity_refit,residual_median,0.7764507785167445,um,
+core04_hca,1_keypoints,he,affine_refit,residual_median,0.8509827928873874,um,
+core04_hca,1_keypoints,he,similarity_refit,residual_rms,1.6118788837307705,um,
+core04_hca,1_keypoints,he,affine_refit,residual_rms,1.5919005674425775,um,
+core04_hca,1_keypoints,he,similarity_refit,residual_max,6.663374593903633,um,
+core04_hca,1_keypoints,he,affine_refit,residual_max,6.630246101137148,um,
+core04_hca,1_keypoints,he,affine_vs_similarity,rms_reduction_pct,1.2394427701634902,%,
+core04_hca,1_keypoints,he,affine_vs_similarity,rms_reduction_expected_from_noise_pct,1.3245617934069753,%,expected if the 2 extra parameters only fit random error
+core04_hca,1_keypoints,he,affine_refit,anisotropy_pct,0.1361167277357911,%,ratio of linear-part singular values minus 1
+core04_hca,1_keypoints,he,affine_refit,scale_x_over_y_pct,-0.12401924394543906,%,
+core04_hca,1_keypoints,he,affine_refit,shear_deg,0.0319148498338393,deg,angle between fitted axes minus 90
+core04_hca,1_keypoints,he,similarity_refit,scale,0.941142796258118,,
+core04_hca,1_keypoints,he,provided_matrix,scale,0.9411491543536221,,
+core04_hca,1_keypoints,comet,provided,n_keypoints,30,,
+core04_hca,1_keypoints,comet,provided_matrix,residual_mean,0.495319982548317,um,
+core04_hca,1_keypoints,comet,provided_matrix,residual_median,0.47451780039562086,um,
+core04_hca,1_keypoints,comet,provided_matrix,residual_rms,0.5611975817348863,um,
+core04_hca,1_keypoints,comet,provided_matrix,residual_max,1.2438147433676843,um,
+core04_hca,1_keypoints,comet,provided_matrix,quadratic_surface_R2,0.22439194066769408,,6 terms per component
+core04_hca,1_keypoints,comet,provided_matrix,quadratic_surface_R2_adjusted,0.06280692830679702,,
+core04_hca,1_keypoints,comet,provided_matrix,quadratic_surface_R2_perm_p,0.2145,,2000 shuffles of residual vectors
+core04_hca,1_keypoints,comet,provided_matrix,quadratic_surface_R2_null_95pct,0.2925096893558528,,
+core04_hca,1_keypoints,comet,similarity_refit,residual_mean,0.49533532341572006,um,
+core04_hca,1_keypoints,comet,affine_refit,residual_mean,0.4950776341977641,um,
+core04_hca,1_keypoints,comet,similarity_refit,residual_median,0.47454261293595656,um,
+core04_hca,1_keypoints,comet,affine_refit,residual_median,0.4659989163288759,um,
+core04_hca,1_keypoints,comet,similarity_refit,residual_rms,0.561197435312791,um,
+core04_hca,1_keypoints,comet,affine_refit,residual_rms,0.5583667809271953,um,
+core04_hca,1_keypoints,comet,similarity_refit,residual_max,1.2435082046203183,um,
+core04_hca,1_keypoints,comet,affine_refit,residual_max,1.1814904771405794,um,
+core04_hca,1_keypoints,comet,affine_vs_similarity,rms_reduction_pct,0.5043954600430389,%,
+core04_hca,1_keypoints,comet,affine_vs_similarity,rms_reduction_expected_from_noise_pct,1.801949393803426,%,expected if the 2 extra parameters only fit random error
+core04_hca,1_keypoints,comet,affine_refit,anisotropy_pct,0.02937980786261729,%,ratio of linear-part singular values minus 1
+core04_hca,1_keypoints,comet,affine_refit,scale_x_over_y_pct,-0.027196457816047737,%,
+core04_hca,1_keypoints,comet,affine_refit,shear_deg,-0.006356244376945597,deg,angle between fitted axes minus 90
+core04_hca,1_keypoints,comet,similarity_refit,scale,1.3138125472971076,,
+core04_hca,1_keypoints,comet,provided_matrix,scale,1.3138139184460642,,
+core04_hca,3_auto_vs_provided,comet_to_fixed,run1_vs_run2,max_abs_matrix_difference,0.0,,array_equal=True
+core04_hca,3_auto_vs_provided,he_to_fixed,run1_vs_run2,max_abs_matrix_difference,0.0,,array_equal=True
+core04_hca,3_auto_vs_provided,confidence,automatic,confidence,high,,
+core04_hca,2_decomposition,he_to_fixed,provided,scale,0.9411491543536221,,
+core04_hca,2_decomposition,he_to_fixed,provided,rotation_deg,0.5432505219773354,,
+core04_hca,2_decomposition,he_to_fixed,provided,tx_px,44849.52363530339,,
+core04_hca,2_decomposition,he_to_fixed,provided,ty_px,49090.49307692642,,
+core04_hca,2_decomposition,he_to_fixed,provided,det_sign,1.0,,
+core04_hca,2_decomposition,he_to_fixed,provided,non_similarity,0.0,,
+core04_hca,2_decomposition,he_to_fixed,provided,tx_um,9530.52377250197,um,
+core04_hca,2_decomposition,he_to_fixed,provided,ty_um,10431.729778846864,um,
+core04_hca,2_decomposition,he_to_fixed,provided,implied_pixel_size_um,0.1999941953001447,um,scale x 0.2125 um (target frame pixel)
+core04_hca,2_decomposition,he_to_fixed,provided,metadata_pixel_size_um,0.20312503808594465,um,
+core04_hca,2_decomposition,he_to_fixed,provided,implied_vs_metadata_pct,-1.5413376978544835,%,
+core04_hca,2_decomposition,he_to_fixed,automatic,scale,0.9414921820331974,,
+core04_hca,2_decomposition,he_to_fixed,automatic,rotation_deg,0.5593047666412132,,
+core04_hca,2_decomposition,he_to_fixed,automatic,tx_px,44849.31393258276,,
+core04_hca,2_decomposition,he_to_fixed,automatic,ty_px,49091.45271795375,,
+core04_hca,2_decomposition,he_to_fixed,automatic,det_sign,1.0,,
+core04_hca,2_decomposition,he_to_fixed,automatic,non_similarity,4.120012559288666e-18,,
+core04_hca,2_decomposition,he_to_fixed,automatic,tx_um,9530.479210673835,um,
+core04_hca,2_decomposition,he_to_fixed,automatic,ty_um,10431.933702565171,um,
+core04_hca,2_decomposition,he_to_fixed,automatic,implied_pixel_size_um,0.20006708868205444,um,scale x 0.2125 um (target frame pixel)
+core04_hca,2_decomposition,he_to_fixed,automatic,metadata_pixel_size_um,0.20312503808594465,um,
+core04_hca,2_decomposition,he_to_fixed,automatic,implied_vs_metadata_pct,-1.5054517319506133,%,
+core04_hca,2_decomposition,comet_to_fixed,provided,scale,1.3138139184460642,,
+core04_hca,2_decomposition,comet_to_fixed,provided,rotation_deg,-0.7548964645687074,,
+core04_hca,2_decomposition,comet_to_fixed,provided,tx_px,44807.31776813387,,
+core04_hca,2_decomposition,comet_to_fixed,provided,ty_px,49176.94190610938,,
+core04_hca,2_decomposition,comet_to_fixed,provided,det_sign,1.0,,
+core04_hca,2_decomposition,comet_to_fixed,provided,non_similarity,2.390129129611945e-16,,
+core04_hca,2_decomposition,comet_to_fixed,provided,tx_um,9521.555025728447,um,
+core04_hca,2_decomposition,comet_to_fixed,provided,ty_um,10450.100155048243,um,
+core04_hca,2_decomposition,comet_to_fixed,provided,implied_pixel_size_um,0.27918545766978864,um,scale x 0.2125 um (target frame pixel)
+core04_hca,2_decomposition,comet_to_fixed,provided,metadata_pixel_size_um,0.28,um,
+core04_hca,2_decomposition,comet_to_fixed,provided,implied_vs_metadata_pct,-0.29090797507549393,%,
+core04_hca,2_decomposition,comet_to_fixed,automatic,scale,1.3136811711369085,,
+core04_hca,2_decomposition,comet_to_fixed,automatic,rotation_deg,-0.7406830321341359,,
+core04_hca,2_decomposition,comet_to_fixed,automatic,tx_px,44808.54587504853,,
+core04_hca,2_decomposition,comet_to_fixed,automatic,ty_px,49177.00728181839,,
+core04_hca,2_decomposition,comet_to_fixed,automatic,det_sign,1.0,,
+core04_hca,2_decomposition,comet_to_fixed,automatic,non_similarity,2.641011402295601e-18,,
+core04_hca,2_decomposition,comet_to_fixed,automatic,tx_um,9521.815998447812,um,
+core04_hca,2_decomposition,comet_to_fixed,automatic,ty_um,10450.114047386407,um,
+core04_hca,2_decomposition,comet_to_fixed,automatic,implied_pixel_size_um,0.27915724886659304,um,scale x 0.2125 um (target frame pixel)
+core04_hca,2_decomposition,comet_to_fixed,automatic,metadata_pixel_size_um,0.28,um,
+core04_hca,2_decomposition,comet_to_fixed,automatic,implied_vs_metadata_pct,-0.3009825476453454,%,
+core04_hca,2_decomposition,he_to_comet,provided,scale,0.716348899292209,,
+core04_hca,2_decomposition,he_to_comet,provided,rotation_deg,1.2981469865460427,,
+core04_hca,2_decomposition,he_to_comet,provided,tx_px,32.988820378006494,,
+core04_hca,2_decomposition,he_to_comet,provided,ty_px,-65.37094817318575,,
+core04_hca,2_decomposition,he_to_comet,provided,det_sign,1.0,,
+core04_hca,2_decomposition,he_to_comet,provided,non_similarity,1.5498355978799105e-16,,
+core04_hca,2_decomposition,he_to_comet,provided,tx_um,9.23686970584182,um,
+core04_hca,2_decomposition,he_to_comet,provided,ty_um,-18.30386548849201,um,
+core04_hca,2_decomposition,he_to_comet,provided,implied_pixel_size_um,0.20057769180181853,um,scale x 0.28 um (target frame pixel)
+core04_hca,2_decomposition,he_to_comet,provided,metadata_pixel_size_um,0.20312503808594465,um,
+core04_hca,2_decomposition,he_to_comet,provided,implied_vs_metadata_pct,-1.2540779355070475,%,
+core04_hca,2_decomposition,he_to_comet,automatic,scale,0.716682405684779,,
+core04_hca,2_decomposition,he_to_comet,automatic,rotation_deg,1.2999877987753488,,
+core04_hca,2_decomposition,he_to_comet,automatic,tx_px,31.87273718409415,,
+core04_hca,2_decomposition,he_to_comet,automatic,ty_px,-64.71920924108417,,
+core04_hca,2_decomposition,he_to_comet,automatic,det_sign,1.0,,
+core04_hca,2_decomposition,he_to_comet,automatic,non_similarity,3.0986069500757173e-16,,
+core04_hca,2_decomposition,he_to_comet,automatic,tx_um,8.924366411546362,um,
+core04_hca,2_decomposition,he_to_comet,automatic,ty_um,-18.12137858750357,um,
+core04_hca,2_decomposition,he_to_comet,automatic,implied_pixel_size_um,0.20067107359173814,um,scale x 0.28 um (target frame pixel)
+core04_hca,2_decomposition,he_to_comet,automatic,metadata_pixel_size_um,0.20312503808594465,um,
+core04_hca,2_decomposition,he_to_comet,automatic,implied_vs_metadata_pct,-1.208105370628021,%,
+core04_hca,3_auto_vs_provided,comet_to_fixed,automatic_vs_provided,mean_um,0.18673869824457354,um,n_grid_points=2893
+core04_hca,3_auto_vs_provided,comet_to_fixed,automatic_vs_provided,median_um,0.2004196993648353,um,n_grid_points=2893
+core04_hca,3_auto_vs_provided,comet_to_fixed,automatic_vs_provided,max_um,0.2668351292340328,um,n_grid_points=2893
+core04_hca,3_auto_vs_provided,he_to_fixed,automatic_vs_provided,mean_um,0.5630538696271968,um,n_grid_points=1871
+core04_hca,3_auto_vs_provided,he_to_fixed,automatic_vs_provided,median_um,0.5361753239958071,um,n_grid_points=1871
+core04_hca,3_auto_vs_provided,he_to_fixed,automatic_vs_provided,max_um,0.8395887544263496,um,n_grid_points=1871
+core04_hca,3_auto_vs_provided,he_to_comet,automatic_vs_provided,mean_um,0.40823611778235736,um,n_grid_points=1871
+core04_hca,3_auto_vs_provided,he_to_comet,automatic_vs_provided,median_um,0.3986607661183606,um,n_grid_points=1871
+core04_hca,3_auto_vs_provided,he_to_comet,automatic_vs_provided,max_um,0.6703106645082194,um,n_grid_points=1871
+core04_hca,4_nuclei,detection,he,n_nuclei_detected,6185,,
+core04_hca,4_nuclei,detection,comet,n_nuclei_detected,3751,,
+core04_hca,4_nuclei,he_to_comet,provided,n_moving_nuclei,6185,,
+core04_hca,4_nuclei,he_to_comet,provided,n_target_nuclei,3751,,
+core04_hca,4_nuclei,he_to_comet,provided,n_pairs_within_4um,3591,,
+core04_hca,4_nuclei,he_to_comet,provided,fraction_matched_within_1um,0.47613969608104506,,of the smaller nuclei set (n=3751); 95% CI 0.4609 to 0.4927
+core04_hca,4_nuclei,he_to_comet,provided,fraction_matched_within_1um_ci_lo,0.46094374833377766,,
+core04_hca,4_nuclei,he_to_comet,provided,fraction_matched_within_1um_ci_hi,0.49266862170087977,,
+core04_hca,4_nuclei,he_to_comet,provided,fraction_matched_within_2um,0.8496400959744068,,of the smaller nuclei set (n=3751); 95% CI 0.8379 to 0.8616
+core04_hca,4_nuclei,he_to_comet,provided,fraction_matched_within_2um_ci_lo,0.8379098906958145,,
+core04_hca,4_nuclei,he_to_comet,provided,fraction_matched_within_2um_ci_hi,0.8616368968275127,,
+core04_hca,4_nuclei,he_to_comet,provided,median_distance_um,1.0061608101554333,um,mutual pairs within 4 um; 95% CI 0.978 to 1.035
+core04_hca,4_nuclei,he_to_comet,provided,median_distance_um_ci_lo,0.9783794242231438,um,
+core04_hca,4_nuclei,he_to_comet,provided,median_distance_um_ci_hi,1.0350446410760619,um,
+core04_hca,4_nuclei,he_to_comet,automatic,n_moving_nuclei,6185,,
+core04_hca,4_nuclei,he_to_comet,automatic,n_target_nuclei,3751,,
+core04_hca,4_nuclei,he_to_comet,automatic,n_pairs_within_4um,3591,,
+core04_hca,4_nuclei,he_to_comet,automatic,fraction_matched_within_1um,0.5366568914956011,,of the smaller nuclei set (n=3751); 95% CI 0.5209 to 0.5521
+core04_hca,4_nuclei,he_to_comet,automatic,fraction_matched_within_1um_ci_lo,0.5209277525993069,,
+core04_hca,4_nuclei,he_to_comet,automatic,fraction_matched_within_1um_ci_hi,0.552119434817382,,
+core04_hca,4_nuclei,he_to_comet,automatic,fraction_matched_within_2um,0.8600373233804319,,of the smaller nuclei set (n=3751); 95% CI 0.8491 to 0.8712
+core04_hca,4_nuclei,he_to_comet,automatic,fraction_matched_within_2um_ci_lo,0.8491069048253799,,
+core04_hca,4_nuclei,he_to_comet,automatic,fraction_matched_within_2um_ci_hi,0.8712410023993602,,
+core04_hca,4_nuclei,he_to_comet,automatic,median_distance_um,0.9113414613714494,um,mutual pairs within 4 um; 95% CI 0.884 to 0.939
+core04_hca,4_nuclei,he_to_comet,automatic,median_distance_um_ci_lo,0.8838325081850626,um,
+core04_hca,4_nuclei,he_to_comet,automatic,median_distance_um_ci_hi,0.9393491383292982,um,
+core04_hca,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_1um_diff,0.06051719541455608,,paired bootstrap 95% CI 0.0475 to 0.0738
+core04_hca,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_1um_diff_ci_lo,0.047454012263396426,,
+core04_hca,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_1um_diff_ci_hi,0.07384697414022927,,
+core04_hca,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_2um_diff,0.010397227406025111,,paired bootstrap 95% CI 0.0043 to 0.0168
+core04_hca,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_2um_diff_ci_lo,0.004265529192215409,,
+core04_hca,4_nuclei,he_to_comet,automatic_minus_provided,fraction_within_2um_diff_ci_hi,0.016795521194348174,,
+core04_hca,4_nuclei,he_to_comet,automatic_vs_provided,verdict,better,,"better/worse only if the paired 95% CI of the matched-fraction difference excludes 0 at 1 um or 2 um (and neither is opposite); equivalent = CI includes 0, i.e. not distinguishable"
+core04_hca,4_nuclei,detection,xenium,n_nuclei_detected,5995,,nucleus_boundaries.parquet polygon vertex mean per cell
+core04_hca,4_nuclei,comet_to_xenium,provided,n_moving_nuclei,3751,,
+core04_hca,4_nuclei,comet_to_xenium,provided,n_target_nuclei,5995,,
+core04_hca,4_nuclei,comet_to_xenium,provided,n_pairs_within_4um,3616,,
+core04_hca,4_nuclei,comet_to_xenium,provided,fraction_matched_within_1um,0.6049053585710478,,of the smaller nuclei set (n=3751); 95% CI 0.5876 to 0.6209
+core04_hca,4_nuclei,comet_to_xenium,provided,fraction_matched_within_1um_ci_lo,0.5875766462276726,,
+core04_hca,4_nuclei,comet_to_xenium,provided,fraction_matched_within_1um_ci_hi,0.6209010930418555,,
+core04_hca,4_nuclei,comet_to_xenium,provided,fraction_matched_within_2um,0.8848307118101839,,of the smaller nuclei set (n=3751); 95% CI 0.8750 to 0.8950
+core04_hca,4_nuclei,comet_to_xenium,provided,fraction_matched_within_2um_ci_lo,0.8749666755531859,,
+core04_hca,4_nuclei,comet_to_xenium,provided,fraction_matched_within_2um_ci_hi,0.8949613436416956,,
+core04_hca,4_nuclei,comet_to_xenium,provided,median_distance_um,0.8218028336434882,um,mutual pairs within 4 um; 95% CI 0.798 to 0.846
+core04_hca,4_nuclei,comet_to_xenium,provided,median_distance_um_ci_lo,0.7981510339184323,um,
+core04_hca,4_nuclei,comet_to_xenium,provided,median_distance_um_ci_hi,0.8461599295641876,um,
+core04_hca,4_nuclei,comet_to_xenium,automatic,n_moving_nuclei,3751,,
+core04_hca,4_nuclei,comet_to_xenium,automatic,n_target_nuclei,5995,,
+core04_hca,4_nuclei,comet_to_xenium,automatic,n_pairs_within_4um,3615,,
+core04_hca,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_1um,0.6249000266595575,,of the smaller nuclei set (n=3751); 95% CI 0.6094 to 0.6393
+core04_hca,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_1um_ci_lo,0.6094374833377766,,
+core04_hca,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_1um_ci_hi,0.6392961876832844,,
+core04_hca,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_2um,0.8864302852572647,,of the smaller nuclei set (n=3751); 95% CI 0.8766 to 0.8968
+core04_hca,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_2um_ci_lo,0.8765662490002666,,
+core04_hca,4_nuclei,comet_to_xenium,automatic,fraction_matched_within_2um_ci_hi,0.8968275126632897,,
+core04_hca,4_nuclei,comet_to_xenium,automatic,median_distance_um,0.792634504064965,um,mutual pairs within 4 um; 95% CI 0.770 to 0.813
+core04_hca,4_nuclei,comet_to_xenium,automatic,median_distance_um_ci_lo,0.7695414843585093,um,
+core04_hca,4_nuclei,comet_to_xenium,automatic,median_distance_um_ci_hi,0.8132139840938218,um,
+core04_hca,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_1um_diff,0.019994668088509693,,paired bootstrap 95% CI 0.0120 to 0.0283
+core04_hca,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_1um_diff_ci_lo,0.011996800853105838,,
+core04_hca,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_1um_diff_ci_hi,0.028259130898427087,,
+core04_hca,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_2um_diff,0.0015995734470808376,,paired bootstrap 95% CI -0.0019 to 0.0048
+core04_hca,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_2um_diff_ci_lo,-0.0018661690215942416,,
+core04_hca,4_nuclei,comet_to_xenium,automatic_minus_provided,fraction_within_2um_diff_ci_hi,0.004798720341242335,,
+core04_hca,4_nuclei,comet_to_xenium,automatic_vs_provided,verdict,better,,"better/worse only if the paired 95% CI of the matched-fraction difference excludes 0 at 1 um or 2 um (and neither is opposite); equivalent = CI includes 0, i.e. not distinguishable"

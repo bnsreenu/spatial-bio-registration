@@ -1,11 +1,11 @@
-"""Task 28: verify the deformation check on all four cores (analysis only, no app or engine changes).
+"""Verify the deformation check on all four cores (analysis only, no app or engine changes).
 
 Usage (from the repository root, UNUMLOCALIA_DIR set for real and stress):
-       python validation/scripts/task28_verify.py real      # run_sample on the 4 cores and demo A, B -> validation_rerun_output/task28_real.csv
-       python validation/scripts/task28_verify.py stress [core ...]   # subset of the Task 25 cases -> validation_rerun_output/stress_test_cores_0204.csv
-       python validation/scripts/task28_verify.py analyze    # tables -> validation_rerun_output/task28_tables.txt (needs the CSVs of the other two commands and of task25)
+       python validation/scripts/deformation_check_verification.py real      # run_sample on the 4 cores and demo A, B -> validation_rerun_output/deformation_check_real_steps.csv
+       python validation/scripts/deformation_check_verification.py stress [core ...]   # subset of the stress-test cases -> validation_rerun_output/stress_test_core02_core04.csv
+       python validation/scripts/deformation_check_verification.py analyze    # tables -> validation_rerun_output/deformation_check_summary_tables.txt (needs the CSVs of the other two commands and of stress_test_known_perturbations.py run)
 
-The stress runs use the Task 25 generators and one_run(), then deformation.analyze_step on the same
+The stress runs use the stress-test generators and one_run(), then deformation.analyze_step on the same
 registration result. "overall" is the step's match confidence capped by the check (pipeline.cap_confidence),
 the per-step counterpart of the sample-level rule. Everything is deterministic (fixed seeds, cv2 RANSAC has none).
 """
@@ -28,12 +28,12 @@ import evaluation as ev  # noqa: E402
 import pipeline as pl  # noqa: E402
 import prep  # noqa: E402
 import samples as sm  # noqa: E402
-import task25_stress_test as t25  # noqa: E402
+import stress_test_known_perturbations as t25  # noqa: E402
 
 OUT = ROOT / "validation_rerun_output"
-REAL_CSV = OUT / "task28_real.csv"
-STRESS_CSV = OUT / "stress_test_cores_0204.csv"
-TABLES = OUT / "task28_tables.txt"
+REAL_CSV = OUT / "deformation_check_real_steps.csv"
+STRESS_CSV = OUT / "stress_test_core02_core04.csv"
+TABLES = OUT / "deformation_check_summary_tables.txt"
 CORES = ["core01_hcc", "core02_non_tumour", "core03_tonsil", "core04_hca"]
 DEMO = ROOT / "test_data" / "batch_demo"
 R2_T = deformation.DEFORMATION_CONFIG["r2_threshold"]

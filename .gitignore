@@ -20,6 +20,7 @@ ENV/
 outputs/
 sessions/
 results/
+!validation/results/
 registration_projects/
 *.log
 

@@ -1,9 +1,9 @@
-"""Task 24: ground-truth audit of the dataset's provided alignments (analysis only).
+"""Audit of the dataset's provided alignments (analysis only).
 
 Run from the repository root with UNUMLOCALIA_DIR set:
-    python validation/scripts/task24_ground_truth_audit.py
-Writes validation_rerun_output/ground_truth_audit.csv (long format) and prints the tables used in
-notes/task24_notes.md. Pipeline and engine behavior are not changed.
+    python validation/scripts/agreement_with_dataset_alignments.py
+Writes validation_rerun_output/agreement_with_dataset_alignments.csv (long format) and prints the tables used in
+notes/agreement_with_dataset_alignments.md. Pipeline and engine behavior are not changed.
 """
 import sys
 import time
@@ -305,10 +305,10 @@ def main():
         v1, v2 = part4(core, images, mats, np.random.default_rng(1))
         summary.append((core, v1, v2))
         print(f"  done in {time.time() - t0:.0f} s; verdicts he_to_comet={v1}, comet_to_xenium={v2}", flush=True)
-        pd.DataFrame(ROWS).to_csv(OUT / "ground_truth_audit.csv", index=False)
+        pd.DataFrame(ROWS).to_csv(OUT / "agreement_with_dataset_alignments.csv", index=False)
     df = pd.DataFrame(ROWS)
-    df.to_csv(OUT / "ground_truth_audit.csv", index=False)
-    print(f"\nwrote {OUT / 'ground_truth_audit.csv'} ({len(df)} rows)")
+    df.to_csv(OUT / "agreement_with_dataset_alignments.csv", index=False)
+    print(f"\nwrote {OUT / 'agreement_with_dataset_alignments.csv'} ({len(df)} rows)")
 
 
 if __name__ == "__main__":

@@ -1,9 +1,9 @@
-"""Task 25: synthetic deformation stress test (measurement only).
+"""Synthetic deformation stress test (measurement only).
 
 Usage (from the repository root, UNUMLOCALIA_DIR set):
-       python validation/scripts/task25_stress_test.py run [step ...] [--cores core01_hcc core03_tonsil]
-       python validation/scripts/task25_stress_test.py plot
-       python validation/scripts/task25_stress_test.py summary
+       python validation/scripts/stress_test_known_perturbations.py run [step ...] [--cores core01_hcc core03_tonsil]
+       python validation/scripts/stress_test_known_perturbations.py plot
+       python validation/scripts/stress_test_known_perturbations.py summary
 
 Moving images are the working images the app hands to engine.register_pair
 (1 um/px, so px == um). A known transform f (about the tissue centre) is
@@ -46,7 +46,7 @@ import samples as sm  # noqa: E402
 
 DATA = config.dataset_dir(required=False)
 OUT = ROOT / "validation_rerun_output"
-CSV = OUT / "stress_test.csv"
+CSV = OUT / "stress_test_core01_core03.csv"
 CORES = ["core01_hcc", "core03_tonsil"]
 STEPS = ["he_to_comet", "comet_to_xenium"]
 ELASTIC_SIGMA_PX = 80.0
