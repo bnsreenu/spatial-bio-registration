@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Editors and OS
+.vscode/
+.DS_Store
+
+# Outputs, sessions, logs
+outputs/
+sessions/
+results/
+registration_projects/
+*.log
+
+# Data
+*.zarr
+*.ome.tif
+*.svs
+*.ndpi
+data/
+test_data/

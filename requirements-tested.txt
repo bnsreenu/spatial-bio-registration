@@ -1,0 +1,28 @@
+# Exact versions of the clean-install test: Python 3.10.21, Windows, fresh venv,
+# pip install -r requirements.txt, then app launch, pipeline on core01, 2 data-free tests.
+numpy==2.2.6
+scipy==1.15.3
+pandas==2.3.3
+pyarrow==25.0.1
+opencv-python-headless==4.14.0.94
+scikit-image==0.25.2
+tifffile==2025.5.10
+zarr==2.18.3
+numcodecs==0.13.1
+PyQt5==5.15.11
+PyQt5-Qt5==5.15.2
+PyQt5_sip==12.20.0
+openslide-python==1.4.7
+openslide-bin==4.0.1.2
+# transitive (pulled in by the above)
+asciitree==1.0.0
+fasteners==0.20
+ImageIO==2.38.0
+lazy-loader==0.6
+networkx==3.4.2
+packaging==26.3
+pillow==12.3.0
+python-dateutil==3.0.0
+pytz==2026.6
+six==1.17.0
+tzdata==2026.6
